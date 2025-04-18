@@ -1,0 +1,20 @@
+task,item_id,condition,exemplar,correct,intuitive,human_prop_correct,exemplar_de,correct_de,intuitive_de,prefix,question
+animals,1,Atypical,eel,fish,reptile,0.9537037037,Aal,Fisch,Reptil,An eel is a type of,What kind of animal is an eel?
+animals,2,Atypical,bat,mammal,bird,0.7777777778,Fledermaus,Saeugetier,Vogel,A bat is a type of,What kind of animal is a bat?
+animals,3,Atypical,penguin,bird,fish,0.9259259259,Pinguin,Vogel,Fisch,A penguin is a type of,What kind of animal is a penguin?
+animals,4,Atypical,butterfly,insect,bird,0.9814814815,Schmetterling,Insekt,Vogel,A butterfly is a type of,What kind of animal is a butterfly?
+animals,5,Atypical,sea lion,mammal,fish,0.9074074074,Seeloewe,Saeugetier,Fisch,A sea lion is a type of,What kind of animal is a sea lion?
+animals,6,Atypical,whale,mammal,fish,0.8055555556,Wal,Saeugetier,Fisch,A whale is a type of,What kind of animal is a whale?
+animals,7,Typical,alligator,reptile,mammal,0.962962963,Alligator,Reptil,Saeugetier,An alligator is a type of,What kind of animal is an alligator?
+animals,8,Typical,chameleon,reptile,insect,0.9814814815,Chamaeleon,Reptil,Insekt,A chameleon is a type of,What kind of animal is a chameleon?
+animals,9,Typical,falcon,bird,reptile,0.9722222222,Falke,Vogel,Reptil,A falcon is a type of,What kind of animal is a falcon?
+animals,10,Typical,goldfish,fish,amphibian,1,Goldfisch,Fisch,Amphibie,A goldfish is a type of,What kind of animal is a goldfish?
+animals,11,Typical,shark,fish,mammal,0.8333333333,Hai,Fisch,Saeugetier,A shark is a type of,What kind of animal is a shark?
+animals,12,Typical,dog,mammal,insect,0.9814814815,Hund,Saeugetier,Insekt,A dog is a type of,What kind of animal is a dog?
+animals,13,Typical,rabbit,mammal,reptile,0.962962963,Kaninchen,Saeugetier,Reptil,A rabbit is a type of,What kind of animal is a rabbit?
+animals,14,Typical,cat,mammal,reptile,0.9907407407,Katze,Saeugetier,Reptil,A cat is a type of,What kind of animal is a cat?
+animals,15,Typical,rattlesnake,reptile,amphibian,0.75,Klapperschlange,Reptil,Amphibie,A rattlesnake is a type of,What kind of animal is a rattlesnake?
+animals,16,Typical,salmon,fish,mammal,0.9722222222,Lachs,Fisch,Saeugetier,A salmon is a type of,What kind of animal is a salmon?
+animals,17,Typical,lion,mammal,fish,0.9907407407,Loewe,Saeugetier,Fisch,A lion is a type of,What kind of animal is a lion?
+animals,18,Typical,horse,mammal,bird,0.9814814815,Pferd,Saeugetier,Vogel,A horse is a type of,What kind of animal is a horse?
+animals,19,Typical,sparrow,bird,mammal,1,Spatz,Vogel,Saeugetier,A sparrow is a type of,What kind of animal is a sparrow?

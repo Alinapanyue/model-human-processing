@@ -1,0 +1,98 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# load utils   ----
+source("analysis/r_scripts/anova_utils.R")
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# define global variables: task and model predictor lists  ----
+
+TASK <- "vision"
+process_metrics <- list(
+  "auc_entropy",
+  "layer_biggest_change_entropy",
+  "auc_rank_correct",
+  "layer_biggest_change_rank_correct",
+  "auc_logprob_correct",
+  "layer_biggest_change_logprob_correct"
+)
+iv_list <- c(
+  list("baseline"),
+  process_metrics
+)
+DATASETS <- c(
+    "colour",
+    "contrast",
+    "cue-conflict",
+    "edge",
+    "eidolonI",
+    "eidolonII",
+    "eidolonIII",
+    "false-colour",
+    "high-pass",
+    "low-pass",
+    "phase-scrambling",
+    "power-equalisation",
+    "rotation",
+    "silhouette",
+    "sketch",
+    "stylized",
+    "uniform-noise"
+)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# full model fits for each human DV, dataset, and model ----
+
+models <- c("vit_small_patch16_224") # , "vit_base_patch16_224")
+for (i in 1:length(models)) {
+  model <- models[[i]]
+  message(sprintf("====== Running all model comparisons for %s ======", model))
+  for (i in 1:length(DATASETS)) {
+    DATASET <- DATASETS[[i]]
+    ID <- sprintf("%s_%s", model, DATASET)
+    
+    # Read data for this dataset.
+    df <- load_vision_data(
+      sprintf("data/human_model_combined/vision_%s_%s.csv", DATASET, model)  
+    )
+    if (!(DATASET %in% c("cue-conflict", "edge", "silhouette", "sketch", "stylized"))) {
+      df <- mutate(df, condition = as.factor(condition))
+    }
+    
+    # ACCURACY
+    message(DATASET)
+    run_model_comparison(
+      df,
+      "response_correct",
+      iv_list,
+      TASK,
+      family=binomial(link="logit"), 
+      use_glmer=T,
+      file_prefix=ID,
+      data_subset="all_trials",
+      vision_dataset=DATASET
+    )
+    
+    # use filtered data for RT
+    df_filtered <- filter(df, response_correct==1)
+
+    run_model_comparison(
+      df_filtered, 
+      "rt_zscore", 
+      iv_list, 
+      TASK,
+      file_prefix=ID,
+      vision_dataset=DATASET,
+      data_subset="filteredCorrect"
+    )
+    
+    run_model_comparison(
+      df_filtered, 
+      "rt", 
+      iv_list, 
+      TASK,
+      log_y=T,
+      file_prefix=ID,
+      vision_dataset=DATASET,
+      data_subset="filteredCorrect"
+    )
+  }
+}

@@ -1,0 +1,2305 @@
+item_id,unique_id,input,syllogism_name,initial_prompt,order_first,is_realistic,is_nonsense,is_consistent,tags,syllogism_condition,is_valid,prefix,correct,incorrect,incorrect_is_intuitive,task
+0,librarians_happy_healthy^consistent^valid,"Argument:
+Some librarians are happy people.
+All happy people are healthy people.
+Conclusion: Some librarians are healthy people.
+Answer:",librarians_happy_healthy,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some librarians are happy people.
+All happy people are healthy people.
+Conclusion: Some librarians are healthy people.
+Answer: The argument is",valid,invalid,False,syllogism
+1,librarians_happy_healthy^consistent^valid,"Argument:
+All happy people are healthy people.
+Some librarians are happy people.
+Conclusion: Some librarians are healthy people.
+Answer:",librarians_happy_healthy,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All happy people are healthy people.
+Some librarians are happy people.
+Conclusion: Some librarians are healthy people.
+Answer: The argument is",valid,invalid,False,syllogism
+2,librarians_happy_healthy^consistent^invalid,"Argument:
+All librarians are happy people.
+Some happy people are healthy people.
+Conclusion: Some librarians are healthy people.
+Answer:",librarians_happy_healthy,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All librarians are happy people.
+Some happy people are healthy people.
+Conclusion: Some librarians are healthy people.
+Answer: The argument is",invalid,valid,True,syllogism
+3,librarians_happy_healthy^consistent^invalid,"Argument:
+Some happy people are healthy people.
+All librarians are happy people.
+Conclusion: Some librarians are healthy people.
+Answer:",librarians_happy_healthy,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some happy people are healthy people.
+All librarians are happy people.
+Conclusion: Some librarians are healthy people.
+Answer: The argument is",invalid,valid,True,syllogism
+4,librarians_happy_healthy^violate^valid,"Argument:
+All healthy people are happy people.
+All happy people are librarians.
+Conclusion: All healthy people are librarians.
+Answer:",librarians_happy_healthy,none,1,True,False,False,"['realistic', 'inconsistent']",violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All healthy people are happy people.
+All happy people are librarians.
+Conclusion: All healthy people are librarians.
+Answer: The argument is",valid,invalid,True,syllogism
+5,librarians_happy_healthy^violate^valid,"Argument:
+All happy people are librarians.
+All healthy people are happy people.
+Conclusion: All healthy people are librarians.
+Answer:",librarians_happy_healthy,none,2,True,False,False,"['realistic', 'inconsistent']",violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All happy people are librarians.
+All healthy people are happy people.
+Conclusion: All healthy people are librarians.
+Answer: The argument is",valid,invalid,True,syllogism
+6,librarians_happy_healthy^violate^invalid,"Argument:
+All happy people are healthy people.
+All happy people are librarians.
+Conclusion: All healthy people are librarians.
+Answer:",librarians_happy_healthy,none,1,True,False,False,"['realistic', 'inconsistent']",violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All happy people are healthy people.
+All happy people are librarians.
+Conclusion: All healthy people are librarians.
+Answer: The argument is",invalid,valid,False,syllogism
+7,librarians_happy_healthy^violate^invalid,"Argument:
+All happy people are librarians.
+All happy people are healthy people.
+Conclusion: All healthy people are librarians.
+Answer:",librarians_happy_healthy,none,2,True,False,False,"['realistic', 'inconsistent']",violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All happy people are librarians.
+All happy people are healthy people.
+Conclusion: All healthy people are librarians.
+Answer: The argument is",invalid,valid,False,syllogism
+8,computers_electronics_expensive^consistent^valid,"Argument:
+Some electronics are computers.
+All computers are expensive things.
+Conclusion: Some electronics are expensive things.
+Answer:",computers_electronics_expensive,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some electronics are computers.
+All computers are expensive things.
+Conclusion: Some electronics are expensive things.
+Answer: The argument is",valid,invalid,False,syllogism
+9,computers_electronics_expensive^consistent^valid,"Argument:
+All computers are expensive things.
+Some electronics are computers.
+Conclusion: Some electronics are expensive things.
+Answer:",computers_electronics_expensive,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All computers are expensive things.
+Some electronics are computers.
+Conclusion: Some electronics are expensive things.
+Answer: The argument is",valid,invalid,False,syllogism
+10,computers_electronics_expensive^consistent^invalid,"Argument:
+Some computers are electronics.
+Some computers are expensive things.
+Conclusion: Some electronics are expensive things.
+Answer:",computers_electronics_expensive,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some computers are electronics.
+Some computers are expensive things.
+Conclusion: Some electronics are expensive things.
+Answer: The argument is",invalid,valid,True,syllogism
+11,computers_electronics_expensive^consistent^invalid,"Argument:
+Some computers are expensive things.
+Some computers are electronics.
+Conclusion: Some electronics are expensive things.
+Answer:",computers_electronics_expensive,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some computers are expensive things.
+Some computers are electronics.
+Conclusion: Some electronics are expensive things.
+Answer: The argument is",invalid,valid,True,syllogism
+12,computers_electronics_expensive^violate^valid,"Argument:
+All expensive things are electronics.
+All electronics are computers.
+Conclusion: All expensive things are computers.
+Answer:",computers_electronics_expensive,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All expensive things are electronics.
+All electronics are computers.
+Conclusion: All expensive things are computers.
+Answer: The argument is",valid,invalid,True,syllogism
+13,computers_electronics_expensive^violate^valid,"Argument:
+All electronics are computers.
+All expensive things are electronics.
+Conclusion: All expensive things are computers.
+Answer:",computers_electronics_expensive,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All electronics are computers.
+All expensive things are electronics.
+Conclusion: All expensive things are computers.
+Answer: The argument is",valid,invalid,True,syllogism
+14,computers_electronics_expensive^violate^invalid,"Argument:
+All computers are electronics.
+All expensive things are electronics.
+Conclusion: All expensive things are computers.
+Answer:",computers_electronics_expensive,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All computers are electronics.
+All expensive things are electronics.
+Conclusion: All expensive things are computers.
+Answer: The argument is",invalid,valid,False,syllogism
+15,computers_electronics_expensive^violate^invalid,"Argument:
+All expensive things are electronics.
+All computers are electronics.
+Conclusion: All expensive things are computers.
+Answer:",computers_electronics_expensive,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All expensive things are electronics.
+All computers are electronics.
+Conclusion: All expensive things are computers.
+Answer: The argument is",invalid,valid,False,syllogism
+16,plants_trees_tall^consistent^valid,"Argument:
+All trees are plants.
+Some trees are tall things.
+Conclusion: Some plants are tall things.
+Answer:",plants_trees_tall,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All trees are plants.
+Some trees are tall things.
+Conclusion: Some plants are tall things.
+Answer: The argument is",valid,invalid,False,syllogism
+17,plants_trees_tall^consistent^valid,"Argument:
+Some trees are tall things.
+All trees are plants.
+Conclusion: Some plants are tall things.
+Answer:",plants_trees_tall,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some trees are tall things.
+All trees are plants.
+Conclusion: Some plants are tall things.
+Answer: The argument is",valid,invalid,False,syllogism
+18,plants_trees_tall^consistent^invalid,"Argument:
+Some plants are trees.
+Some trees are tall things.
+Conclusion: Some plants are tall things.
+Answer:",plants_trees_tall,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some plants are trees.
+Some trees are tall things.
+Conclusion: Some plants are tall things.
+Answer: The argument is",invalid,valid,True,syllogism
+19,plants_trees_tall^consistent^invalid,"Argument:
+Some trees are tall things.
+Some plants are trees.
+Conclusion: Some plants are tall things.
+Answer:",plants_trees_tall,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some trees are tall things.
+Some plants are trees.
+Conclusion: Some plants are tall things.
+Answer: The argument is",invalid,valid,True,syllogism
+20,plants_trees_tall^violate^valid,"Argument:
+All trees are tall things.
+All plants are trees.
+Conclusion: All plants are tall things.
+Answer:",plants_trees_tall,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All trees are tall things.
+All plants are trees.
+Conclusion: All plants are tall things.
+Answer: The argument is",valid,invalid,True,syllogism
+21,plants_trees_tall^violate^valid,"Argument:
+All plants are trees.
+All trees are tall things.
+Conclusion: All plants are tall things.
+Answer:",plants_trees_tall,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All plants are trees.
+All trees are tall things.
+Conclusion: All plants are tall things.
+Answer: The argument is",valid,invalid,True,syllogism
+22,plants_trees_tall^violate^invalid,"Argument:
+All trees are tall things.
+Some plants are tall things.
+Conclusion: All plants are trees.
+Answer:",plants_trees_tall,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All trees are tall things.
+Some plants are tall things.
+Conclusion: All plants are trees.
+Answer: The argument is",invalid,valid,False,syllogism
+23,plants_trees_tall^violate^invalid,"Argument:
+Some plants are tall things.
+All trees are tall things.
+Conclusion: All plants are trees.
+Answer:",plants_trees_tall,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some plants are tall things.
+All trees are tall things.
+Conclusion: All plants are trees.
+Answer: The argument is",invalid,valid,False,syllogism
+24,flowers_animals_reptiles^consistent^valid,"Argument:
+No flowers are animals.
+All reptiles are animals.
+Conclusion: No flowers are reptiles.
+Answer:",flowers_animals_reptiles,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No flowers are animals.
+All reptiles are animals.
+Conclusion: No flowers are reptiles.
+Answer: The argument is",valid,invalid,False,syllogism
+25,flowers_animals_reptiles^consistent^valid,"Argument:
+All reptiles are animals.
+No flowers are animals.
+Conclusion: No flowers are reptiles.
+Answer:",flowers_animals_reptiles,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All reptiles are animals.
+No flowers are animals.
+Conclusion: No flowers are reptiles.
+Answer: The argument is",valid,invalid,False,syllogism
+26,flowers_animals_reptiles^consistent^invalid,"Argument:
+No flowers are reptiles.
+All reptiles are animals.
+Conclusion: No flowers are animals.
+Answer:",flowers_animals_reptiles,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No flowers are reptiles.
+All reptiles are animals.
+Conclusion: No flowers are animals.
+Answer: The argument is",invalid,valid,True,syllogism
+27,flowers_animals_reptiles^consistent^invalid,"Argument:
+All reptiles are animals.
+No flowers are reptiles.
+Conclusion: No flowers are animals.
+Answer:",flowers_animals_reptiles,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All reptiles are animals.
+No flowers are reptiles.
+Conclusion: No flowers are animals.
+Answer: The argument is",invalid,valid,True,syllogism
+28,flowers_animals_reptiles^violate^valid,"Argument:
+All reptiles are flowers.
+No flowers are animals.
+Conclusion: No reptiles are animals.
+Answer:",flowers_animals_reptiles,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All reptiles are flowers.
+No flowers are animals.
+Conclusion: No reptiles are animals.
+Answer: The argument is",valid,invalid,True,syllogism
+29,flowers_animals_reptiles^violate^valid,"Argument:
+No flowers are animals.
+All reptiles are flowers.
+Conclusion: No reptiles are animals.
+Answer:",flowers_animals_reptiles,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No flowers are animals.
+All reptiles are flowers.
+Conclusion: No reptiles are animals.
+Answer: The argument is",valid,invalid,True,syllogism
+30,flowers_animals_reptiles^violate^invalid,"Argument:
+All flowers are reptiles.
+No flowers are animals.
+Conclusion: No reptiles are animals.
+Answer:",flowers_animals_reptiles,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All flowers are reptiles.
+No flowers are animals.
+Conclusion: No reptiles are animals.
+Answer: The argument is",invalid,valid,False,syllogism
+31,flowers_animals_reptiles^violate^invalid,"Argument:
+No flowers are animals.
+All flowers are reptiles.
+Conclusion: No reptiles are animals.
+Answer:",flowers_animals_reptiles,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No flowers are animals.
+All flowers are reptiles.
+Conclusion: No reptiles are animals.
+Answer: The argument is",invalid,valid,False,syllogism
+32,gems_diamonds_transparent^consistent^valid,"Argument:
+All diamonds are gems.
+Some diamonds are transparent things.
+Conclusion: Some gems are transparent things.
+Answer:",gems_diamonds_transparent,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All diamonds are gems.
+Some diamonds are transparent things.
+Conclusion: Some gems are transparent things.
+Answer: The argument is",valid,invalid,False,syllogism
+33,gems_diamonds_transparent^consistent^valid,"Argument:
+Some diamonds are transparent things.
+All diamonds are gems.
+Conclusion: Some gems are transparent things.
+Answer:",gems_diamonds_transparent,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some diamonds are transparent things.
+All diamonds are gems.
+Conclusion: Some gems are transparent things.
+Answer: The argument is",valid,invalid,False,syllogism
+34,gems_diamonds_transparent^consistent^invalid,"Argument:
+All diamonds are gems.
+Some gems are transparent things.
+Conclusion: Some diamonds are transparent things.
+Answer:",gems_diamonds_transparent,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All diamonds are gems.
+Some gems are transparent things.
+Conclusion: Some diamonds are transparent things.
+Answer: The argument is",invalid,valid,True,syllogism
+35,gems_diamonds_transparent^consistent^invalid,"Argument:
+Some gems are transparent things.
+All diamonds are gems.
+Conclusion: Some diamonds are transparent things.
+Answer:",gems_diamonds_transparent,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some gems are transparent things.
+All diamonds are gems.
+Conclusion: Some diamonds are transparent things.
+Answer: The argument is",invalid,valid,True,syllogism
+36,gems_diamonds_transparent^violate^valid,"Argument:
+All gems are diamonds.
+All transparent things are gems.
+Conclusion: All transparent things are diamonds.
+Answer:",gems_diamonds_transparent,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All gems are diamonds.
+All transparent things are gems.
+Conclusion: All transparent things are diamonds.
+Answer: The argument is",valid,invalid,True,syllogism
+37,gems_diamonds_transparent^violate^valid,"Argument:
+All transparent things are gems.
+All gems are diamonds.
+Conclusion: All transparent things are diamonds.
+Answer:",gems_diamonds_transparent,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All transparent things are gems.
+All gems are diamonds.
+Conclusion: All transparent things are diamonds.
+Answer: The argument is",valid,invalid,True,syllogism
+38,gems_diamonds_transparent^violate^invalid,"Argument:
+All diamonds are gems.
+Some transparent things are gems.
+Conclusion: All transparent things are diamonds.
+Answer:",gems_diamonds_transparent,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All diamonds are gems.
+Some transparent things are gems.
+Conclusion: All transparent things are diamonds.
+Answer: The argument is",invalid,valid,False,syllogism
+39,gems_diamonds_transparent^violate^invalid,"Argument:
+Some transparent things are gems.
+All diamonds are gems.
+Conclusion: All transparent things are diamonds.
+Answer:",gems_diamonds_transparent,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some transparent things are gems.
+All diamonds are gems.
+Conclusion: All transparent things are diamonds.
+Answer: The argument is",invalid,valid,False,syllogism
+40,guns_weapons_dangerous^consistent^valid,"Argument:
+All guns are weapons.
+All weapons are dangerous things.
+Conclusion: All guns are dangerous things.
+Answer:",guns_weapons_dangerous,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All guns are weapons.
+All weapons are dangerous things.
+Conclusion: All guns are dangerous things.
+Answer: The argument is",valid,invalid,False,syllogism
+41,guns_weapons_dangerous^consistent^valid,"Argument:
+All weapons are dangerous things.
+All guns are weapons.
+Conclusion: All guns are dangerous things.
+Answer:",guns_weapons_dangerous,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All weapons are dangerous things.
+All guns are weapons.
+Conclusion: All guns are dangerous things.
+Answer: The argument is",valid,invalid,False,syllogism
+42,guns_weapons_dangerous^consistent^invalid,"Argument:
+All guns are weapons.
+All guns are dangerous things.
+Conclusion: All weapons are dangerous things.
+Answer:",guns_weapons_dangerous,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All guns are weapons.
+All guns are dangerous things.
+Conclusion: All weapons are dangerous things.
+Answer: The argument is",invalid,valid,True,syllogism
+43,guns_weapons_dangerous^consistent^invalid,"Argument:
+All guns are dangerous things.
+All guns are weapons.
+Conclusion: All weapons are dangerous things.
+Answer:",guns_weapons_dangerous,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All guns are dangerous things.
+All guns are weapons.
+Conclusion: All weapons are dangerous things.
+Answer: The argument is",invalid,valid,True,syllogism
+44,guns_weapons_dangerous^violate^valid,"Argument:
+All weapons are dangerous things.
+All dangerous things are guns.
+Conclusion: All weapons are guns.
+Answer:",guns_weapons_dangerous,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All weapons are dangerous things.
+All dangerous things are guns.
+Conclusion: All weapons are guns.
+Answer: The argument is",valid,invalid,True,syllogism
+45,guns_weapons_dangerous^violate^valid,"Argument:
+All dangerous things are guns.
+All weapons are dangerous things.
+Conclusion: All weapons are guns.
+Answer:",guns_weapons_dangerous,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dangerous things are guns.
+All weapons are dangerous things.
+Conclusion: All weapons are guns.
+Answer: The argument is",valid,invalid,True,syllogism
+46,guns_weapons_dangerous^violate^invalid,"Argument:
+All guns are weapons.
+All weapons are dangerous things.
+Conclusion: All dangerous things are guns.
+Answer:",guns_weapons_dangerous,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All guns are weapons.
+All weapons are dangerous things.
+Conclusion: All dangerous things are guns.
+Answer: The argument is",invalid,valid,False,syllogism
+47,guns_weapons_dangerous^violate^invalid,"Argument:
+All weapons are dangerous things.
+All guns are weapons.
+Conclusion: All dangerous things are guns.
+Answer:",guns_weapons_dangerous,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All weapons are dangerous things.
+All guns are weapons.
+Conclusion: All dangerous things are guns.
+Answer: The argument is",invalid,valid,False,syllogism
+48,dragons_mythical_exist^consistent^valid,"Argument:
+All dragons are mythical creatures.
+No mythical creatures are things that exist.
+Conclusion: No dragons are things that exist.
+Answer:",dragons_mythical_exist,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dragons are mythical creatures.
+No mythical creatures are things that exist.
+Conclusion: No dragons are things that exist.
+Answer: The argument is",valid,invalid,False,syllogism
+49,dragons_mythical_exist^consistent^valid,"Argument:
+No mythical creatures are things that exist.
+All dragons are mythical creatures.
+Conclusion: No dragons are things that exist.
+Answer:",dragons_mythical_exist,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No mythical creatures are things that exist.
+All dragons are mythical creatures.
+Conclusion: No dragons are things that exist.
+Answer: The argument is",valid,invalid,False,syllogism
+50,dragons_mythical_exist^consistent^invalid,"Argument:
+Some mythical creatures are dragons.
+No mythical creatures are things that exist.
+Conclusion: No dragons are things that exist.
+Answer:",dragons_mythical_exist,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some mythical creatures are dragons.
+No mythical creatures are things that exist.
+Conclusion: No dragons are things that exist.
+Answer: The argument is",invalid,valid,True,syllogism
+51,dragons_mythical_exist^consistent^invalid,"Argument:
+No mythical creatures are things that exist.
+Some mythical creatures are dragons.
+Conclusion: No dragons are things that exist.
+Answer:",dragons_mythical_exist,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No mythical creatures are things that exist.
+Some mythical creatures are dragons.
+Conclusion: No dragons are things that exist.
+Answer: The argument is",invalid,valid,True,syllogism
+52,dragons_mythical_exist^violate^invalid,"Argument:
+No dragons are things that exist.
+No mythical creatures are things that exist.
+Conclusion: No dragons are mythical creatures.
+Answer:",dragons_mythical_exist,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No dragons are things that exist.
+No mythical creatures are things that exist.
+Conclusion: No dragons are mythical creatures.
+Answer: The argument is",invalid,valid,False,syllogism
+53,dragons_mythical_exist^violate^invalid,"Argument:
+No mythical creatures are things that exist.
+No dragons are things that exist.
+Conclusion: No dragons are mythical creatures.
+Answer:",dragons_mythical_exist,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No mythical creatures are things that exist.
+No dragons are things that exist.
+Conclusion: No dragons are mythical creatures.
+Answer: The argument is",invalid,valid,False,syllogism
+54,dragons_mythical_exist^violate^valid,"Argument:
+No things that exist are mythical creatures.
+All dragons are things that exist.
+Conclusion: No dragons are mythical creatures.
+Answer:",dragons_mythical_exist,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No things that exist are mythical creatures.
+All dragons are things that exist.
+Conclusion: No dragons are mythical creatures.
+Answer: The argument is",valid,invalid,True,syllogism
+55,dragons_mythical_exist^violate^valid,"Argument:
+All dragons are things that exist.
+No things that exist are mythical creatures.
+Conclusion: No dragons are mythical creatures.
+Answer:",dragons_mythical_exist,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dragons are things that exist.
+No things that exist are mythical creatures.
+Conclusion: No dragons are mythical creatures.
+Answer: The argument is",valid,invalid,True,syllogism
+56,politicians_dishonest_lie^consistent^valid,"Argument:
+Some politicians are dishonest people.
+All dishonest people are people who lie.
+Conclusion: Some politicians are people who lie.
+Answer:",politicians_dishonest_lie,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some politicians are dishonest people.
+All dishonest people are people who lie.
+Conclusion: Some politicians are people who lie.
+Answer: The argument is",valid,invalid,False,syllogism
+57,politicians_dishonest_lie^consistent^valid,"Argument:
+All dishonest people are people who lie.
+Some politicians are dishonest people.
+Conclusion: Some politicians are people who lie.
+Answer:",politicians_dishonest_lie,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dishonest people are people who lie.
+Some politicians are dishonest people.
+Conclusion: Some politicians are people who lie.
+Answer: The argument is",valid,invalid,False,syllogism
+58,politicians_dishonest_lie^consistent^invalid,"Argument:
+Some politicians are dishonest people.
+Some dishonest people are people who lie.
+Conclusion: Some politicians are people who lie.
+Answer:",politicians_dishonest_lie,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some politicians are dishonest people.
+Some dishonest people are people who lie.
+Conclusion: Some politicians are people who lie.
+Answer: The argument is",invalid,valid,True,syllogism
+59,politicians_dishonest_lie^consistent^invalid,"Argument:
+Some dishonest people are people who lie.
+Some politicians are dishonest people.
+Conclusion: Some politicians are people who lie.
+Answer:",politicians_dishonest_lie,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some dishonest people are people who lie.
+Some politicians are dishonest people.
+Conclusion: Some politicians are people who lie.
+Answer: The argument is",invalid,valid,True,syllogism
+60,politicians_dishonest_lie^violate^valid,"Argument:
+All dishonest people are people who lie.
+All people who lie are politicians.
+Conclusion: All dishonest people are politicians.
+Answer:",politicians_dishonest_lie,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dishonest people are people who lie.
+All people who lie are politicians.
+Conclusion: All dishonest people are politicians.
+Answer: The argument is",valid,invalid,True,syllogism
+61,politicians_dishonest_lie^violate^valid,"Argument:
+All people who lie are politicians.
+All dishonest people are people who lie.
+Conclusion: All dishonest people are politicians.
+Answer:",politicians_dishonest_lie,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All people who lie are politicians.
+All dishonest people are people who lie.
+Conclusion: All dishonest people are politicians.
+Answer: The argument is",valid,invalid,True,syllogism
+62,politicians_dishonest_lie^violate^invalid,"Argument:
+All politicians are people who lie.
+All dishonest people are people who lie.
+Conclusion: All dishonest people are politicians.
+Answer:",politicians_dishonest_lie,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All politicians are people who lie.
+All dishonest people are people who lie.
+Conclusion: All dishonest people are politicians.
+Answer: The argument is",invalid,valid,False,syllogism
+63,politicians_dishonest_lie^violate^invalid,"Argument:
+All dishonest people are people who lie.
+All politicians are people who lie.
+Conclusion: All dishonest people are politicians.
+Answer:",politicians_dishonest_lie,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dishonest people are people who lie.
+All politicians are people who lie.
+Conclusion: All dishonest people are politicians.
+Answer: The argument is",invalid,valid,False,syllogism
+64,whales_mammals_big^consistent^invalid,"Argument:
+Some mammals are big things.
+All whales are mammals.
+Conclusion: Some whales are big things.
+Answer:",whales_mammals_big,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some mammals are big things.
+All whales are mammals.
+Conclusion: Some whales are big things.
+Answer: The argument is",invalid,valid,True,syllogism
+65,whales_mammals_big^consistent^invalid,"Argument:
+All whales are mammals.
+Some mammals are big things.
+Conclusion: Some whales are big things.
+Answer:",whales_mammals_big,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All whales are mammals.
+Some mammals are big things.
+Conclusion: Some whales are big things.
+Answer: The argument is",invalid,valid,True,syllogism
+66,whales_mammals_big^consistent^valid,"Argument:
+All whales are mammals.
+Some whales are big things.
+Conclusion: Some mammals are big things.
+Answer:",whales_mammals_big,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All whales are mammals.
+Some whales are big things.
+Conclusion: Some mammals are big things.
+Answer: The argument is",valid,invalid,False,syllogism
+67,whales_mammals_big^consistent^valid,"Argument:
+Some whales are big things.
+All whales are mammals.
+Conclusion: Some mammals are big things.
+Answer:",whales_mammals_big,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some whales are big things.
+All whales are mammals.
+Conclusion: Some mammals are big things.
+Answer: The argument is",valid,invalid,False,syllogism
+68,whales_mammals_big^violate^invalid,"Argument:
+All whales are mammals.
+All whales are big things.
+Conclusion: All mammals are big things.
+Answer:",whales_mammals_big,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All whales are mammals.
+All whales are big things.
+Conclusion: All mammals are big things.
+Answer: The argument is",invalid,valid,False,syllogism
+69,whales_mammals_big^violate^invalid,"Argument:
+All whales are big things.
+All whales are mammals.
+Conclusion: All mammals are big things.
+Answer:",whales_mammals_big,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All whales are big things.
+All whales are mammals.
+Conclusion: All mammals are big things.
+Answer: The argument is",invalid,valid,False,syllogism
+70,whales_mammals_big^violate^valid,"Argument:
+All big things are mammals.
+All mammals are whales.
+Conclusion: All big things are whales.
+Answer:",whales_mammals_big,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All big things are mammals.
+All mammals are whales.
+Conclusion: All big things are whales.
+Answer: The argument is",valid,invalid,True,syllogism
+71,whales_mammals_big^violate^valid,"Argument:
+All mammals are whales.
+All big things are mammals.
+Conclusion: All big things are whales.
+Answer:",whales_mammals_big,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All mammals are whales.
+All big things are mammals.
+Conclusion: All big things are whales.
+Answer: The argument is",valid,invalid,True,syllogism
+72,food_vegetables_healthy^violate^valid,"Argument:
+All vegetables are healthy things.
+All foods are vegetables.
+Conclusion: All foods are healthy things.
+Answer:",food_vegetables_healthy,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vegetables are healthy things.
+All foods are vegetables.
+Conclusion: All foods are healthy things.
+Answer: The argument is",valid,invalid,True,syllogism
+73,food_vegetables_healthy^violate^valid,"Argument:
+All foods are vegetables.
+All vegetables are healthy things.
+Conclusion: All foods are healthy things.
+Answer:",food_vegetables_healthy,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All foods are vegetables.
+All vegetables are healthy things.
+Conclusion: All foods are healthy things.
+Answer: The argument is",valid,invalid,True,syllogism
+74,food_vegetables_healthy^violate^invalid,"Argument:
+All vegetables are foods.
+All vegetables are healthy things.
+Conclusion: All foods are healthy things.
+Answer:",food_vegetables_healthy,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vegetables are foods.
+All vegetables are healthy things.
+Conclusion: All foods are healthy things.
+Answer: The argument is",invalid,valid,False,syllogism
+75,food_vegetables_healthy^violate^invalid,"Argument:
+All vegetables are healthy things.
+All vegetables are foods.
+Conclusion: All foods are healthy things.
+Answer:",food_vegetables_healthy,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vegetables are healthy things.
+All vegetables are foods.
+Conclusion: All foods are healthy things.
+Answer: The argument is",invalid,valid,False,syllogism
+76,food_vegetables_healthy^consistent^valid,"Argument:
+All vegetables are foods.
+Some vegetables are healthy things.
+Conclusion: Some foods are healthy things.
+Answer:",food_vegetables_healthy,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vegetables are foods.
+Some vegetables are healthy things.
+Conclusion: Some foods are healthy things.
+Answer: The argument is",valid,invalid,False,syllogism
+77,food_vegetables_healthy^consistent^valid,"Argument:
+Some vegetables are healthy things.
+All vegetables are foods.
+Conclusion: Some foods are healthy things.
+Answer:",food_vegetables_healthy,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some vegetables are healthy things.
+All vegetables are foods.
+Conclusion: Some foods are healthy things.
+Answer: The argument is",valid,invalid,False,syllogism
+78,food_vegetables_healthy^consistent^invalid,"Argument:
+Some vegetables are foods.
+Some vegetables are healthy things.
+Conclusion: Some foods are healthy things.
+Answer:",food_vegetables_healthy,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some vegetables are foods.
+Some vegetables are healthy things.
+Conclusion: Some foods are healthy things.
+Answer: The argument is",invalid,valid,True,syllogism
+79,food_vegetables_healthy^consistent^invalid,"Argument:
+Some vegetables are healthy things.
+Some vegetables are foods.
+Conclusion: Some foods are healthy things.
+Answer:",food_vegetables_healthy,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some vegetables are healthy things.
+Some vegetables are foods.
+Conclusion: Some foods are healthy things.
+Answer: The argument is",invalid,valid,True,syllogism
+80,famous_wealthy_old^consistent^valid,"Argument:
+All famous actors are wealthy people.
+Some famous actors are old people.
+Conclusion: Some old people are wealthy people.
+Answer:",famous_wealthy_old,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All famous actors are wealthy people.
+Some famous actors are old people.
+Conclusion: Some old people are wealthy people.
+Answer: The argument is",valid,invalid,False,syllogism
+81,famous_wealthy_old^consistent^valid,"Argument:
+Some famous actors are old people.
+All famous actors are wealthy people.
+Conclusion: Some old people are wealthy people.
+Answer:",famous_wealthy_old,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some famous actors are old people.
+All famous actors are wealthy people.
+Conclusion: Some old people are wealthy people.
+Answer: The argument is",valid,invalid,False,syllogism
+82,famous_wealthy_old^consistent^invalid,"Argument:
+Some famous actors are wealthy people.
+Some famous actors are old people.
+Conclusion: Some old people are wealthy people.
+Answer:",famous_wealthy_old,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some famous actors are wealthy people.
+Some famous actors are old people.
+Conclusion: Some old people are wealthy people.
+Answer: The argument is",invalid,valid,True,syllogism
+83,famous_wealthy_old^consistent^invalid,"Argument:
+Some famous actors are old people.
+Some famous actors are wealthy people.
+Conclusion: Some old people are wealthy people.
+Answer:",famous_wealthy_old,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some famous actors are old people.
+Some famous actors are wealthy people.
+Conclusion: Some old people are wealthy people.
+Answer: The argument is",invalid,valid,True,syllogism
+84,famous_wealthy_old^violate^valid,"Argument:
+All old people are wealthy people.
+All wealthy people are famous actors.
+Conclusion: All old people are famous actors.
+Answer:",famous_wealthy_old,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All old people are wealthy people.
+All wealthy people are famous actors.
+Conclusion: All old people are famous actors.
+Answer: The argument is",valid,invalid,True,syllogism
+85,famous_wealthy_old^violate^valid,"Argument:
+All wealthy people are famous actors.
+All old people are wealthy people.
+Conclusion: All old people are famous actors.
+Answer:",famous_wealthy_old,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All wealthy people are famous actors.
+All old people are wealthy people.
+Conclusion: All old people are famous actors.
+Answer: The argument is",valid,invalid,True,syllogism
+86,famous_wealthy_old^violate^invalid,"Argument:
+All old people are wealthy people.
+All famous actors are wealthy people.
+Conclusion: All old people are famous actors.
+Answer:",famous_wealthy_old,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All old people are wealthy people.
+All famous actors are wealthy people.
+Conclusion: All old people are famous actors.
+Answer: The argument is",invalid,valid,False,syllogism
+87,famous_wealthy_old^violate^invalid,"Argument:
+All famous actors are wealthy people.
+All old people are wealthy people.
+Conclusion: All old people are famous actors.
+Answer:",famous_wealthy_old,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All famous actors are wealthy people.
+All old people are wealthy people.
+Conclusion: All old people are famous actors.
+Answer: The argument is",invalid,valid,False,syllogism
+88,vehicles_mobile_buildings^consistent^valid,"Argument:
+All vehicles are things that move.
+No buildings are things that move.
+Conclusion: No buildings are vehicles.
+Answer:",vehicles_mobile_buildings,none,1,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vehicles are things that move.
+No buildings are things that move.
+Conclusion: No buildings are vehicles.
+Answer: The argument is",valid,invalid,False,syllogism
+89,vehicles_mobile_buildings^consistent^valid,"Argument:
+No buildings are things that move.
+All vehicles are things that move.
+Conclusion: No buildings are vehicles.
+Answer:",vehicles_mobile_buildings,none,2,True,False,True,"['realistic', 'consistent']",consistent,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No buildings are things that move.
+All vehicles are things that move.
+Conclusion: No buildings are vehicles.
+Answer: The argument is",valid,invalid,False,syllogism
+90,vehicles_mobile_buildings^consistent^invalid,"Argument:
+All things that move are vehicles.
+No buildings are things that move.
+Conclusion: No buildings are vehicles.
+Answer:",vehicles_mobile_buildings,none,1,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All things that move are vehicles.
+No buildings are things that move.
+Conclusion: No buildings are vehicles.
+Answer: The argument is",invalid,valid,True,syllogism
+91,vehicles_mobile_buildings^consistent^invalid,"Argument:
+No buildings are things that move.
+All things that move are vehicles.
+Conclusion: No buildings are vehicles.
+Answer:",vehicles_mobile_buildings,none,2,True,False,True,"['realistic', 'consistent']",consistent,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No buildings are things that move.
+All things that move are vehicles.
+Conclusion: No buildings are vehicles.
+Answer: The argument is",invalid,valid,True,syllogism
+92,vehicles_mobile_buildings^violate^valid,"Argument:
+All vehicles are buildings.
+No things that move are buildings.
+Conclusion: No vehicles are things that move.
+Answer:",vehicles_mobile_buildings,none,1,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vehicles are buildings.
+No things that move are buildings.
+Conclusion: No vehicles are things that move.
+Answer: The argument is",valid,invalid,True,syllogism
+93,vehicles_mobile_buildings^violate^valid,"Argument:
+No things that move are buildings.
+All vehicles are buildings.
+Conclusion: No vehicles are things that move.
+Answer:",vehicles_mobile_buildings,none,2,True,False,False,['realistic'],violate,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No things that move are buildings.
+All vehicles are buildings.
+Conclusion: No vehicles are things that move.
+Answer: The argument is",valid,invalid,True,syllogism
+94,vehicles_mobile_buildings^violate^invalid,"Argument:
+No vehicles are buildings.
+All buildings are things that move.
+Conclusion: No vehicles are things that move.
+Answer:",vehicles_mobile_buildings,none,1,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No vehicles are buildings.
+All buildings are things that move.
+Conclusion: No vehicles are things that move.
+Answer: The argument is",invalid,valid,False,syllogism
+95,vehicles_mobile_buildings^violate^invalid,"Argument:
+All buildings are things that move.
+No vehicles are buildings.
+Conclusion: No vehicles are things that move.
+Answer:",vehicles_mobile_buildings,none,2,True,False,False,['realistic'],violate,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All buildings are things that move.
+No vehicles are buildings.
+Conclusion: No vehicles are things that move.
+Answer: The argument is",invalid,valid,False,syllogism
+96,nonsense_phrite_ing_pand^nonsense^valid,"Argument:
+Some pand are ing.
+All ing are phrite.
+Conclusion: Some pand are phrite.
+Answer:",nonsense_phrite_ing_pand,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some pand are ing.
+All ing are phrite.
+Conclusion: Some pand are phrite.
+Answer: The argument is",valid,invalid,False,syllogism
+97,nonsense_phrite_ing_pand^nonsense^valid,"Argument:
+All ing are phrite.
+Some pand are ing.
+Conclusion: Some pand are phrite.
+Answer:",nonsense_phrite_ing_pand,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All ing are phrite.
+Some pand are ing.
+Conclusion: Some pand are phrite.
+Answer: The argument is",valid,invalid,False,syllogism
+98,nonsense_bosp_jift_nup^nonsense^invalid,"Argument:
+All nup are jift.
+Some jift are bosp.
+Conclusion: Some nup are bosp.
+Answer:",nonsense_bosp_jift_nup,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All nup are jift.
+Some jift are bosp.
+Conclusion: Some nup are bosp.
+Answer: The argument is",invalid,valid,False,syllogism
+99,nonsense_bosp_jift_nup^nonsense^invalid,"Argument:
+Some jift are bosp.
+All nup are jift.
+Conclusion: Some nup are bosp.
+Answer:",nonsense_bosp_jift_nup,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some jift are bosp.
+All nup are jift.
+Conclusion: Some nup are bosp.
+Answer: The argument is",invalid,valid,False,syllogism
+100,nonsense_snid_ust_bem^nonsense^valid,"Argument:
+All snid are bem.
+All bem are ust.
+Conclusion: All snid are ust.
+Answer:",nonsense_snid_ust_bem,none,1,False,True,False,"['nonsense', 'inconsistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All snid are bem.
+All bem are ust.
+Conclusion: All snid are ust.
+Answer: The argument is",valid,invalid,False,syllogism
+101,nonsense_snid_ust_bem^nonsense^valid,"Argument:
+All bem are ust.
+All snid are bem.
+Conclusion: All snid are ust.
+Answer:",nonsense_snid_ust_bem,none,2,False,True,False,"['nonsense', 'inconsistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All bem are ust.
+All snid are bem.
+Conclusion: All snid are ust.
+Answer: The argument is",valid,invalid,False,syllogism
+102,nonsense_nept_bript_jeft^nonsense^invalid,"Argument:
+All jeft are nept.
+All jeft are bript.
+Conclusion: All nept are bript.
+Answer:",nonsense_nept_bript_jeft,none,1,False,True,False,"['nonsense', 'inconsistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All jeft are nept.
+All jeft are bript.
+Conclusion: All nept are bript.
+Answer: The argument is",invalid,valid,False,syllogism
+103,nonsense_nept_bript_jeft^nonsense^invalid,"Argument:
+All jeft are bript.
+All jeft are nept.
+Conclusion: All nept are bript.
+Answer:",nonsense_nept_bript_jeft,none,2,False,True,False,"['nonsense', 'inconsistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All jeft are bript.
+All jeft are nept.
+Conclusion: All nept are bript.
+Answer: The argument is",invalid,valid,False,syllogism
+104,nonsense_sclack_chask_pron^nonsense^valid,"Argument:
+Some sclack are chask.
+All chask are pron.
+Conclusion: Some sclack are pron.
+Answer:",nonsense_sclack_chask_pron,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some sclack are chask.
+All chask are pron.
+Conclusion: Some sclack are pron.
+Answer: The argument is",valid,invalid,False,syllogism
+105,nonsense_sclack_chask_pron^nonsense^valid,"Argument:
+All chask are pron.
+Some sclack are chask.
+Conclusion: Some sclack are pron.
+Answer:",nonsense_sclack_chask_pron,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All chask are pron.
+Some sclack are chask.
+Conclusion: Some sclack are pron.
+Answer: The argument is",valid,invalid,False,syllogism
+106,nonsense_stope_unt_gleck^nonsense^invalid,"Argument:
+Some stope are gleck.
+Some stope are unt.
+Conclusion: Some gleck are unt.
+Answer:",nonsense_stope_unt_gleck,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some stope are gleck.
+Some stope are unt.
+Conclusion: Some gleck are unt.
+Answer: The argument is",invalid,valid,False,syllogism
+107,nonsense_stope_unt_gleck^nonsense^invalid,"Argument:
+Some stope are unt.
+Some stope are gleck.
+Conclusion: Some gleck are unt.
+Answer:",nonsense_stope_unt_gleck,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some stope are unt.
+Some stope are gleck.
+Conclusion: Some gleck are unt.
+Answer: The argument is",invalid,valid,False,syllogism
+108,nonsense_gluff_caft_jint^nonsense^valid,"Argument:
+All jint are gluff.
+All gluff are caft.
+Conclusion: All jint are caft.
+Answer:",nonsense_gluff_caft_jint,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All jint are gluff.
+All gluff are caft.
+Conclusion: All jint are caft.
+Answer: The argument is",valid,invalid,False,syllogism
+109,nonsense_gluff_caft_jint^nonsense^valid,"Argument:
+All gluff are caft.
+All jint are gluff.
+Conclusion: All jint are caft.
+Answer:",nonsense_gluff_caft_jint,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All gluff are caft.
+All jint are gluff.
+Conclusion: All jint are caft.
+Answer: The argument is",valid,invalid,False,syllogism
+110,nonsense_fleff_drap_ved^nonsense^invalid,"Argument:
+All fleff are ved.
+All drap are ved.
+Conclusion: All drap are fleff.
+Answer:",nonsense_fleff_drap_ved,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All fleff are ved.
+All drap are ved.
+Conclusion: All drap are fleff.
+Answer: The argument is",invalid,valid,False,syllogism
+111,nonsense_fleff_drap_ved^nonsense^invalid,"Argument:
+All drap are ved.
+All fleff are ved.
+Conclusion: All drap are fleff.
+Answer:",nonsense_fleff_drap_ved,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All drap are ved.
+All fleff are ved.
+Conclusion: All drap are fleff.
+Answer: The argument is",invalid,valid,False,syllogism
+112,nonsense_paft_usp_cesk^nonsense^valid,"Argument:
+All cesk are paft.
+Some cesk are usp.
+Conclusion: Some paft are usp.
+Answer:",nonsense_paft_usp_cesk,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All cesk are paft.
+Some cesk are usp.
+Conclusion: Some paft are usp.
+Answer: The argument is",valid,invalid,False,syllogism
+113,nonsense_paft_usp_cesk^nonsense^valid,"Argument:
+Some cesk are usp.
+All cesk are paft.
+Conclusion: Some paft are usp.
+Answer:",nonsense_paft_usp_cesk,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some cesk are usp.
+All cesk are paft.
+Conclusion: Some paft are usp.
+Answer: The argument is",valid,invalid,False,syllogism
+114,nonsense_trime_dimp_mag^nonsense^invalid,"Argument:
+Some trime are mag.
+Some mag are dimp.
+Conclusion: Some trime are dimp.
+Answer:",nonsense_trime_dimp_mag,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some trime are mag.
+Some mag are dimp.
+Conclusion: Some trime are dimp.
+Answer: The argument is",invalid,valid,False,syllogism
+115,nonsense_trime_dimp_mag^nonsense^invalid,"Argument:
+Some mag are dimp.
+Some trime are mag.
+Conclusion: Some trime are dimp.
+Answer:",nonsense_trime_dimp_mag,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some mag are dimp.
+Some trime are mag.
+Conclusion: Some trime are dimp.
+Answer: The argument is",invalid,valid,False,syllogism
+116,nonsense_kemp_clud_thrund^nonsense^valid,"Argument:
+All thrund are clud.
+All kemp are thrund.
+Conclusion: All kemp are clud.
+Answer:",nonsense_kemp_clud_thrund,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All thrund are clud.
+All kemp are thrund.
+Conclusion: All kemp are clud.
+Answer: The argument is",valid,invalid,False,syllogism
+117,nonsense_kemp_clud_thrund^nonsense^valid,"Argument:
+All kemp are thrund.
+All thrund are clud.
+Conclusion: All kemp are clud.
+Answer:",nonsense_kemp_clud_thrund,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All kemp are thrund.
+All thrund are clud.
+Conclusion: All kemp are clud.
+Answer: The argument is",valid,invalid,False,syllogism
+118,nonsense_frupt_liff_blop^nonsense^invalid,"Argument:
+All blop are liff.
+Some frupt are liff.
+Conclusion: All frupt are blop.
+Answer:",nonsense_frupt_liff_blop,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All blop are liff.
+Some frupt are liff.
+Conclusion: All frupt are blop.
+Answer: The argument is",invalid,valid,False,syllogism
+119,nonsense_frupt_liff_blop^nonsense^invalid,"Argument:
+Some frupt are liff.
+All blop are liff.
+Conclusion: All frupt are blop.
+Answer:",nonsense_frupt_liff_blop,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some frupt are liff.
+All blop are liff.
+Conclusion: All frupt are blop.
+Answer: The argument is",invalid,valid,False,syllogism
+120,nonsense_gand_yusp_druff^nonsense^valid,"Argument:
+No druff are yusp.
+All gand are yusp.
+Conclusion: No druff are gand.
+Answer:",nonsense_gand_yusp_druff,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No druff are yusp.
+All gand are yusp.
+Conclusion: No druff are gand.
+Answer: The argument is",valid,invalid,False,syllogism
+121,nonsense_gand_yusp_druff^nonsense^valid,"Argument:
+All gand are yusp.
+No druff are yusp.
+Conclusion: No druff are gand.
+Answer:",nonsense_gand_yusp_druff,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All gand are yusp.
+No druff are yusp.
+Conclusion: No druff are gand.
+Answer: The argument is",valid,invalid,False,syllogism
+122,nonsense_glap_phropt_soff^nonsense^invalid,"Argument:
+No soff are glap.
+All glap are phropt.
+Conclusion: No soff are phropt.
+Answer:",nonsense_glap_phropt_soff,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No soff are glap.
+All glap are phropt.
+Conclusion: No soff are phropt.
+Answer: The argument is",invalid,valid,False,syllogism
+123,nonsense_glap_phropt_soff^nonsense^invalid,"Argument:
+All glap are phropt.
+No soff are glap.
+Conclusion: No soff are phropt.
+Answer:",nonsense_glap_phropt_soff,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All glap are phropt.
+No soff are glap.
+Conclusion: No soff are phropt.
+Answer: The argument is",invalid,valid,False,syllogism
+124,nonsense_vonk_jang_fress^nonsense^valid,"Argument:
+All fress are vonk.
+No vonk are jang.
+Conclusion: No fress are jang.
+Answer:",nonsense_vonk_jang_fress,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All fress are vonk.
+No vonk are jang.
+Conclusion: No fress are jang.
+Answer: The argument is",valid,invalid,False,syllogism
+125,nonsense_vonk_jang_fress^nonsense^valid,"Argument:
+No vonk are jang.
+All fress are vonk.
+Conclusion: No fress are jang.
+Answer:",nonsense_vonk_jang_fress,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No vonk are jang.
+All fress are vonk.
+Conclusion: No fress are jang.
+Answer: The argument is",valid,invalid,False,syllogism
+126,nonsense_zint_thade_snaff^nonsense^invalid,"Argument:
+All snaff are zint.
+No snaff are thade.
+Conclusion: No zint are thade.
+Answer:",nonsense_zint_thade_snaff,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All snaff are zint.
+No snaff are thade.
+Conclusion: No zint are thade.
+Answer: The argument is",invalid,valid,False,syllogism
+127,nonsense_zint_thade_snaff^nonsense^invalid,"Argument:
+No snaff are thade.
+All snaff are zint.
+Conclusion: No zint are thade.
+Answer:",nonsense_zint_thade_snaff,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No snaff are thade.
+All snaff are zint.
+Conclusion: No zint are thade.
+Answer: The argument is",invalid,valid,False,syllogism
+128,nonsense_yoct_fisk_nand^nonsense^valid,"Argument:
+All yoct are nand.
+Some yoct are fisk.
+Conclusion: Some nand are fisk.
+Answer:",nonsense_yoct_fisk_nand,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All yoct are nand.
+Some yoct are fisk.
+Conclusion: Some nand are fisk.
+Answer: The argument is",valid,invalid,False,syllogism
+129,nonsense_yoct_fisk_nand^nonsense^valid,"Argument:
+Some yoct are fisk.
+All yoct are nand.
+Conclusion: Some nand are fisk.
+Answer:",nonsense_yoct_fisk_nand,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some yoct are fisk.
+All yoct are nand.
+Conclusion: Some nand are fisk.
+Answer: The argument is",valid,invalid,False,syllogism
+130,nonsense_flact_frep_blen^nonsense^invalid,"Argument:
+All flact are blen.
+Some blen are frep.
+Conclusion: Some flact are frep.
+Answer:",nonsense_flact_frep_blen,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All flact are blen.
+Some blen are frep.
+Conclusion: Some flact are frep.
+Answer: The argument is",invalid,valid,False,syllogism
+131,nonsense_flact_frep_blen^nonsense^invalid,"Argument:
+Some blen are frep.
+All flact are blen.
+Conclusion: Some flact are frep.
+Answer:",nonsense_flact_frep_blen,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some blen are frep.
+All flact are blen.
+Conclusion: Some flact are frep.
+Answer: The argument is",invalid,valid,False,syllogism
+132,nonsense_sclace_dact_yink^nonsense^valid,"Argument:
+All yink are sclace.
+All dact are yink.
+Conclusion: All dact are sclace.
+Answer:",nonsense_sclace_dact_yink,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All yink are sclace.
+All dact are yink.
+Conclusion: All dact are sclace.
+Answer: The argument is",valid,invalid,False,syllogism
+133,nonsense_sclace_dact_yink^nonsense^valid,"Argument:
+All dact are yink.
+All yink are sclace.
+Conclusion: All dact are sclace.
+Answer:",nonsense_sclace_dact_yink,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dact are yink.
+All yink are sclace.
+Conclusion: All dact are sclace.
+Answer: The argument is",valid,invalid,False,syllogism
+134,nonsense_bisk_uft_glap^nonsense^invalid,"Argument:
+All bisk are glap.
+Some uft are glap.
+Conclusion: All uft are bisk.
+Answer:",nonsense_bisk_uft_glap,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All bisk are glap.
+Some uft are glap.
+Conclusion: All uft are bisk.
+Answer: The argument is",invalid,valid,False,syllogism
+135,nonsense_bisk_uft_glap^nonsense^invalid,"Argument:
+Some uft are glap.
+All bisk are glap.
+Conclusion: All uft are bisk.
+Answer:",nonsense_bisk_uft_glap,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some uft are glap.
+All bisk are glap.
+Conclusion: All uft are bisk.
+Answer: The argument is",invalid,valid,False,syllogism
+136,nonsense_phrist_biss_skemp^nonsense^valid,"Argument:
+All phrist are biss.
+All biss are skemp.
+Conclusion: All phrist are skemp.
+Answer:",nonsense_phrist_biss_skemp,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All phrist are biss.
+All biss are skemp.
+Conclusion: All phrist are skemp.
+Answer: The argument is",valid,invalid,False,syllogism
+137,nonsense_phrist_biss_skemp^nonsense^valid,"Argument:
+All biss are skemp.
+All phrist are biss.
+Conclusion: All phrist are skemp.
+Answer:",nonsense_phrist_biss_skemp,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All biss are skemp.
+All phrist are biss.
+Conclusion: All phrist are skemp.
+Answer: The argument is",valid,invalid,False,syllogism
+138,nonsense_rimp_thomp_zin^nonsense^invalid,"Argument:
+All rimp are thomp.
+All rimp are zin.
+Conclusion: All thomp are zin.
+Answer:",nonsense_rimp_thomp_zin,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All rimp are thomp.
+All rimp are zin.
+Conclusion: All thomp are zin.
+Answer: The argument is",invalid,valid,False,syllogism
+139,nonsense_rimp_thomp_zin^nonsense^invalid,"Argument:
+All rimp are zin.
+All rimp are thomp.
+Conclusion: All thomp are zin.
+Answer:",nonsense_rimp_thomp_zin,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All rimp are zin.
+All rimp are thomp.
+Conclusion: All thomp are zin.
+Answer: The argument is",invalid,valid,False,syllogism
+140,nonsense_sland_spluff_gusp^nonsense^valid,"Argument:
+All spluff are gusp.
+All gusp are sland.
+Conclusion: All spluff are sland.
+Answer:",nonsense_sland_spluff_gusp,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All spluff are gusp.
+All gusp are sland.
+Conclusion: All spluff are sland.
+Answer: The argument is",valid,invalid,False,syllogism
+141,nonsense_sland_spluff_gusp^nonsense^valid,"Argument:
+All gusp are sland.
+All spluff are gusp.
+Conclusion: All spluff are sland.
+Answer:",nonsense_sland_spluff_gusp,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All gusp are sland.
+All spluff are gusp.
+Conclusion: All spluff are sland.
+Answer: The argument is",valid,invalid,False,syllogism
+142,nonsense_gick_criff_riff^nonsense^invalid,"Argument:
+All gick are criff.
+All criff are riff.
+Conclusion: All riff are gick.
+Answer:",nonsense_gick_criff_riff,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All gick are criff.
+All criff are riff.
+Conclusion: All riff are gick.
+Answer: The argument is",invalid,valid,False,syllogism
+143,nonsense_gick_criff_riff^nonsense^invalid,"Argument:
+All criff are riff.
+All gick are criff.
+Conclusion: All riff are gick.
+Answer:",nonsense_gick_criff_riff,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All criff are riff.
+All gick are criff.
+Conclusion: All riff are gick.
+Answer: The argument is",invalid,valid,False,syllogism
+144,nonsense_shiff_yot_plusk^nonsense^valid,"Argument:
+All plusk are shiff.
+No shiff are yot.
+Conclusion: No plusk are yot.
+Answer:",nonsense_shiff_yot_plusk,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All plusk are shiff.
+No shiff are yot.
+Conclusion: No plusk are yot.
+Answer: The argument is",valid,invalid,False,syllogism
+145,nonsense_shiff_yot_plusk^nonsense^valid,"Argument:
+No shiff are yot.
+All plusk are shiff.
+Conclusion: No plusk are yot.
+Answer:",nonsense_shiff_yot_plusk,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No shiff are yot.
+All plusk are shiff.
+Conclusion: No plusk are yot.
+Answer: The argument is",valid,invalid,False,syllogism
+146,nonsense_zoft_chand_splink^nonsense^invalid,"Argument:
+Some zoft are splink.
+No zoft are chand.
+Conclusion: No splink are chand.
+Answer:",nonsense_zoft_chand_splink,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some zoft are splink.
+No zoft are chand.
+Conclusion: No splink are chand.
+Answer: The argument is",invalid,valid,False,syllogism
+147,nonsense_zoft_chand_splink^nonsense^invalid,"Argument:
+No zoft are chand.
+Some zoft are splink.
+Conclusion: No splink are chand.
+Answer:",nonsense_zoft_chand_splink,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No zoft are chand.
+Some zoft are splink.
+Conclusion: No splink are chand.
+Answer: The argument is",invalid,valid,False,syllogism
+148,nonsense_dask_flump_fect^nonsense^invalid,"Argument:
+No fect are dask.
+No flump are dask.
+Conclusion: No fect are flump.
+Answer:",nonsense_dask_flump_fect,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No fect are dask.
+No flump are dask.
+Conclusion: No fect are flump.
+Answer: The argument is",invalid,valid,False,syllogism
+149,nonsense_dask_flump_fect^nonsense^invalid,"Argument:
+No flump are dask.
+No fect are dask.
+Conclusion: No fect are flump.
+Answer:",nonsense_dask_flump_fect,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No flump are dask.
+No fect are dask.
+Conclusion: No fect are flump.
+Answer: The argument is",invalid,valid,False,syllogism
+150,nonsense_hap_thrum_zid^nonsense^valid,"Argument:
+No hap are thrum.
+All zid are hap.
+Conclusion: No zid are thrum.
+Answer:",nonsense_hap_thrum_zid,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No hap are thrum.
+All zid are hap.
+Conclusion: No zid are thrum.
+Answer: The argument is",valid,invalid,False,syllogism
+151,nonsense_hap_thrum_zid^nonsense^valid,"Argument:
+All zid are hap.
+No hap are thrum.
+Conclusion: No zid are thrum.
+Answer:",nonsense_hap_thrum_zid,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All zid are hap.
+No hap are thrum.
+Conclusion: No zid are thrum.
+Answer: The argument is",valid,invalid,False,syllogism
+152,nonsense_teft_yact_jund^nonsense^valid,"Argument:
+Some jund are teft.
+All teft are yact.
+Conclusion: Some jund are yact.
+Answer:",nonsense_teft_yact_jund,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some jund are teft.
+All teft are yact.
+Conclusion: Some jund are yact.
+Answer: The argument is",valid,invalid,False,syllogism
+153,nonsense_teft_yact_jund^nonsense^valid,"Argument:
+All teft are yact.
+Some jund are teft.
+Conclusion: Some jund are yact.
+Answer:",nonsense_teft_yact_jund,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All teft are yact.
+Some jund are teft.
+Conclusion: Some jund are yact.
+Answer: The argument is",valid,invalid,False,syllogism
+154,nonsense_troff_plam_sphob^nonsense^invalid,"Argument:
+Some sphob are troff.
+Some troff are plam.
+Conclusion: Some sphob are plam.
+Answer:",nonsense_troff_plam_sphob,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some sphob are troff.
+Some troff are plam.
+Conclusion: Some sphob are plam.
+Answer: The argument is",invalid,valid,False,syllogism
+155,nonsense_troff_plam_sphob^nonsense^invalid,"Argument:
+Some troff are plam.
+Some sphob are troff.
+Conclusion: Some sphob are plam.
+Answer:",nonsense_troff_plam_sphob,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some troff are plam.
+Some sphob are troff.
+Conclusion: Some sphob are plam.
+Answer: The argument is",invalid,valid,False,syllogism
+156,nonsense_zeff_zaff_zom^nonsense^valid,"Argument:
+All zeff are zom.
+All zom are zaff.
+Conclusion: All zeff are zaff.
+Answer:",nonsense_zeff_zaff_zom,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All zeff are zom.
+All zom are zaff.
+Conclusion: All zeff are zaff.
+Answer: The argument is",valid,invalid,False,syllogism
+157,nonsense_zeff_zaff_zom^nonsense^valid,"Argument:
+All zom are zaff.
+All zeff are zom.
+Conclusion: All zeff are zaff.
+Answer:",nonsense_zeff_zaff_zom,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All zom are zaff.
+All zeff are zom.
+Conclusion: All zeff are zaff.
+Answer: The argument is",valid,invalid,False,syllogism
+158,nonsense_yuft_yab_sunt^nonsense^invalid,"Argument:
+All sunt are yab.
+All yuft are yab.
+Conclusion: All yuft are sunt.
+Answer:",nonsense_yuft_yab_sunt,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All sunt are yab.
+All yuft are yab.
+Conclusion: All yuft are sunt.
+Answer: The argument is",invalid,valid,False,syllogism
+159,nonsense_yuft_yab_sunt^nonsense^invalid,"Argument:
+All yuft are yab.
+All sunt are yab.
+Conclusion: All yuft are sunt.
+Answer:",nonsense_yuft_yab_sunt,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All yuft are yab.
+All sunt are yab.
+Conclusion: All yuft are sunt.
+Answer: The argument is",invalid,valid,False,syllogism
+160,nonsense_plig_prash_lupt^nonsense^invalid,"Argument:
+Some plig are prash.
+All lupt are plig.
+Conclusion: Some lupt are prash.
+Answer:",nonsense_plig_prash_lupt,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some plig are prash.
+All lupt are plig.
+Conclusion: Some lupt are prash.
+Answer: The argument is",invalid,valid,False,syllogism
+161,nonsense_plig_prash_lupt^nonsense^invalid,"Argument:
+All lupt are plig.
+Some plig are prash.
+Conclusion: Some lupt are prash.
+Answer:",nonsense_plig_prash_lupt,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All lupt are plig.
+Some plig are prash.
+Conclusion: Some lupt are prash.
+Answer: The argument is",invalid,valid,False,syllogism
+162,nonsense_thrag_ont_vept^nonsense^valid,"Argument:
+All vept are thrag.
+Some vept are ont.
+Conclusion: Some thrag are ont.
+Answer:",nonsense_thrag_ont_vept,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vept are thrag.
+Some vept are ont.
+Conclusion: Some thrag are ont.
+Answer: The argument is",valid,invalid,False,syllogism
+163,nonsense_thrag_ont_vept^nonsense^valid,"Argument:
+Some vept are ont.
+All vept are thrag.
+Conclusion: Some thrag are ont.
+Answer:",nonsense_thrag_ont_vept,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some vept are ont.
+All vept are thrag.
+Conclusion: Some thrag are ont.
+Answer: The argument is",valid,invalid,False,syllogism
+164,nonsense_blep_jict_zamp^nonsense^invalid,"Argument:
+All zamp are blep.
+All zamp are jict.
+Conclusion: All blep are jict.
+Answer:",nonsense_blep_jict_zamp,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All zamp are blep.
+All zamp are jict.
+Conclusion: All blep are jict.
+Answer: The argument is",invalid,valid,False,syllogism
+165,nonsense_blep_jict_zamp^nonsense^invalid,"Argument:
+All zamp are jict.
+All zamp are blep.
+Conclusion: All blep are jict.
+Answer:",nonsense_blep_jict_zamp,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All zamp are jict.
+All zamp are blep.
+Conclusion: All blep are jict.
+Answer: The argument is",invalid,valid,False,syllogism
+166,nonsense_gapt_prash_glemp^nonsense^valid,"Argument:
+All prash are gapt.
+All gapt are glemp.
+Conclusion: All prash are glemp.
+Answer:",nonsense_gapt_prash_glemp,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All prash are gapt.
+All gapt are glemp.
+Conclusion: All prash are glemp.
+Answer: The argument is",valid,invalid,False,syllogism
+167,nonsense_gapt_prash_glemp^nonsense^valid,"Argument:
+All gapt are glemp.
+All prash are gapt.
+Conclusion: All prash are glemp.
+Answer:",nonsense_gapt_prash_glemp,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All gapt are glemp.
+All prash are gapt.
+Conclusion: All prash are glemp.
+Answer: The argument is",valid,invalid,False,syllogism
+168,nonsense_luft_noct_vosk^nonsense^valid,"Argument:
+All vosk are luft.
+All noct are vosk.
+Conclusion: All noct are luft.
+Answer:",nonsense_luft_noct_vosk,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vosk are luft.
+All noct are vosk.
+Conclusion: All noct are luft.
+Answer: The argument is",valid,invalid,False,syllogism
+169,nonsense_luft_noct_vosk^nonsense^valid,"Argument:
+All noct are vosk.
+All vosk are luft.
+Conclusion: All noct are luft.
+Answer:",nonsense_luft_noct_vosk,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All noct are vosk.
+All vosk are luft.
+Conclusion: All noct are luft.
+Answer: The argument is",valid,invalid,False,syllogism
+170,nonsense_wib_mact_boct^nonsense^invalid,"Argument:
+All boct are mact.
+All boct are wib.
+Conclusion: All mact are wib.
+Answer:",nonsense_wib_mact_boct,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All boct are mact.
+All boct are wib.
+Conclusion: All mact are wib.
+Answer: The argument is",invalid,valid,False,syllogism
+171,nonsense_wib_mact_boct^nonsense^invalid,"Argument:
+All boct are wib.
+All boct are mact.
+Conclusion: All mact are wib.
+Answer:",nonsense_wib_mact_boct,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All boct are wib.
+All boct are mact.
+Conclusion: All mact are wib.
+Answer: The argument is",invalid,valid,False,syllogism
+172,nonsense_namp_clun_hamp^nonsense^valid,"Argument:
+All hamp are clun.
+Some hamp are namp.
+Conclusion: Some clun are namp.
+Answer:",nonsense_namp_clun_hamp,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All hamp are clun.
+Some hamp are namp.
+Conclusion: Some clun are namp.
+Answer: The argument is",valid,invalid,False,syllogism
+173,nonsense_namp_clun_hamp^nonsense^valid,"Argument:
+Some hamp are namp.
+All hamp are clun.
+Conclusion: Some clun are namp.
+Answer:",nonsense_namp_clun_hamp,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some hamp are namp.
+All hamp are clun.
+Conclusion: Some clun are namp.
+Answer: The argument is",valid,invalid,False,syllogism
+174,nonsense_trunt_om_jemp^nonsense^invalid,"Argument:
+Some jemp are om.
+Some jemp are trunt.
+Conclusion: Some om are trunt.
+Answer:",nonsense_trunt_om_jemp,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some jemp are om.
+Some jemp are trunt.
+Conclusion: Some om are trunt.
+Answer: The argument is",invalid,valid,False,syllogism
+175,nonsense_trunt_om_jemp^nonsense^invalid,"Argument:
+Some jemp are trunt.
+Some jemp are om.
+Conclusion: Some om are trunt.
+Answer:",nonsense_trunt_om_jemp,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some jemp are trunt.
+Some jemp are om.
+Conclusion: Some om are trunt.
+Answer: The argument is",invalid,valid,False,syllogism
+176,nonsense_vesk_foff_strod^nonsense^valid,"Argument:
+All vesk are foff.
+Some vesk are strod.
+Conclusion: Some strod are foff.
+Answer:",nonsense_vesk_foff_strod,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All vesk are foff.
+Some vesk are strod.
+Conclusion: Some strod are foff.
+Answer: The argument is",valid,invalid,False,syllogism
+177,nonsense_vesk_foff_strod^nonsense^valid,"Argument:
+Some vesk are strod.
+All vesk are foff.
+Conclusion: Some strod are foff.
+Answer:",nonsense_vesk_foff_strod,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some vesk are strod.
+All vesk are foff.
+Conclusion: Some strod are foff.
+Answer: The argument is",valid,invalid,False,syllogism
+178,nonsense_yob_broft_jank^nonsense^invalid,"Argument:
+Some yob are broft.
+Some yob are jank.
+Conclusion: Some jank are broft.
+Answer:",nonsense_yob_broft_jank,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some yob are broft.
+Some yob are jank.
+Conclusion: Some jank are broft.
+Answer: The argument is",invalid,valid,False,syllogism
+179,nonsense_yob_broft_jank^nonsense^invalid,"Argument:
+Some yob are jank.
+Some yob are broft.
+Conclusion: Some jank are broft.
+Answer:",nonsense_yob_broft_jank,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+Some yob are jank.
+Some yob are broft.
+Conclusion: Some jank are broft.
+Answer: The argument is",invalid,valid,False,syllogism
+180,nonsense_shrad_splect_dring^nonsense^valid,"Argument:
+All dring are splect.
+All splect are shrad.
+Conclusion: All dring are shrad.
+Answer:",nonsense_shrad_splect_dring,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All dring are splect.
+All splect are shrad.
+Conclusion: All dring are shrad.
+Answer: The argument is",valid,invalid,False,syllogism
+181,nonsense_shrad_splect_dring^nonsense^valid,"Argument:
+All splect are shrad.
+All dring are splect.
+Conclusion: All dring are shrad.
+Answer:",nonsense_shrad_splect_dring,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All splect are shrad.
+All dring are splect.
+Conclusion: All dring are shrad.
+Answer: The argument is",valid,invalid,False,syllogism
+182,nonsense_blit_slipe_bruss^nonsense^invalid,"Argument:
+All bruss are slipe.
+All blit are slipe.
+Conclusion: All bruss are blit.
+Answer:",nonsense_blit_slipe_bruss,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All bruss are slipe.
+All blit are slipe.
+Conclusion: All bruss are blit.
+Answer: The argument is",invalid,valid,False,syllogism
+183,nonsense_blit_slipe_bruss^nonsense^invalid,"Argument:
+All blit are slipe.
+All bruss are slipe.
+Conclusion: All bruss are blit.
+Answer:",nonsense_blit_slipe_bruss,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All blit are slipe.
+All bruss are slipe.
+Conclusion: All bruss are blit.
+Answer: The argument is",invalid,valid,False,syllogism
+184,nonsense_sneb_jing_omp^nonsense^valid,"Argument:
+All sneb are jing.
+No omp are jing.
+Conclusion: No omp are sneb.
+Answer:",nonsense_sneb_jing_omp,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All sneb are jing.
+No omp are jing.
+Conclusion: No omp are sneb.
+Answer: The argument is",valid,invalid,False,syllogism
+185,nonsense_sneb_jing_omp^nonsense^valid,"Argument:
+No omp are jing.
+All sneb are jing.
+Conclusion: No omp are sneb.
+Answer:",nonsense_sneb_jing_omp,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No omp are jing.
+All sneb are jing.
+Conclusion: No omp are sneb.
+Answer: The argument is",valid,invalid,False,syllogism
+186,nonsense_blim_phrint_yemp^nonsense^invalid,"Argument:
+All phrint are blim.
+No yemp are phrint.
+Conclusion: No yemp are blim.
+Answer:",nonsense_blim_phrint_yemp,none,1,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All phrint are blim.
+No yemp are phrint.
+Conclusion: No yemp are blim.
+Answer: The argument is",invalid,valid,False,syllogism
+187,nonsense_blim_phrint_yemp^nonsense^invalid,"Argument:
+No yemp are phrint.
+All phrint are blim.
+Conclusion: No yemp are blim.
+Answer:",nonsense_blim_phrint_yemp,none,2,False,True,True,"['nonsense', 'consistent']",nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No yemp are phrint.
+All phrint are blim.
+Conclusion: No yemp are blim.
+Answer: The argument is",invalid,valid,False,syllogism
+188,nonsense_splack_zoct_spuff^nonsense^valid,"Argument:
+All splack are spuff.
+No zoct are spuff.
+Conclusion: No splack are zoct.
+Answer:",nonsense_splack_zoct_spuff,none,1,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All splack are spuff.
+No zoct are spuff.
+Conclusion: No splack are zoct.
+Answer: The argument is",valid,invalid,False,syllogism
+189,nonsense_splack_zoct_spuff^nonsense^valid,"Argument:
+No zoct are spuff.
+All splack are spuff.
+Conclusion: No splack are zoct.
+Answer:",nonsense_splack_zoct_spuff,none,2,False,True,False,['nonsense'],nonsense,True,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No zoct are spuff.
+All splack are spuff.
+Conclusion: No splack are zoct.
+Answer: The argument is",valid,invalid,False,syllogism
+190,nonsense_threck_crand_grosp^nonsense^invalid,"Argument:
+No threck are grosp.
+All grosp are crand.
+Conclusion: No threck are crand.
+Answer:",nonsense_threck_crand_grosp,none,1,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+No threck are grosp.
+All grosp are crand.
+Conclusion: No threck are crand.
+Answer: The argument is",invalid,valid,False,syllogism
+191,nonsense_threck_crand_grosp^nonsense^invalid,"Argument:
+All grosp are crand.
+No threck are grosp.
+Conclusion: No threck are crand.
+Answer:",nonsense_threck_crand_grosp,none,2,False,True,False,['nonsense'],nonsense,False,"In this task, you will have to answer a series of questions. You will have to choose the best answer to complete a sentence, paragraph, or question. Please answer them to the best of your ability.
+
+Please assume that the first two sentences in the argument are true. Determine whether the argument is valid or invalid, that is, whether the conclusion follows from the first two sentences:
+Argument:
+All grosp are crand.
+No threck are grosp.
+Conclusion: No threck are crand.
+Answer: The argument is",invalid,valid,False,syllogism

@@ -1,0 +1,43 @@
+task,item_id,entity_type,entity,correct,intuitive,intuitive_2,question,prefix,population_correct,population_intuitive,population_ratio
+capitals,1,country,Australia,Canberra,Sydney,Melbourne,What is the capital of Australia?,The capital of Australia is,0.483,5.249,10.86749482
+capitals,2,country,Brazil,Brasilia,Rio de Janeiro,Sao Paulo,What is the capital of Brazil?,The capital of Brazil is,4.99,13.923,2.790180361
+capitals,3,country,Canada,Ottawa,Toronto,Montreal,What is the capital of Canada?,The capital of Canada is,1.465,6.491,4.430716724
+capitals,4,country,India,New Delhi,Mumbai,,What is the capital of India?,The capital of India is,0.206,22.1,107.2815534
+capitals,5,country,Morrocco,Rabat,Marrakesh,Casablanca,What is the capital of Morrocco?,The capital of Morrocco is,2.02,1.085,0.5371287129
+capitals,6,country,New Zealand,Wellington,Auckland,,What is the capital of New Zealand?,The capital of New Zealand is,0.428,1.711,3.997663551
+capitals,7,country,Pakistan,Islamabad,Karachi,,What is the capital of Pakistan?,The capital of Pakistan is,1.3,18.1,13.92307692
+capitals,8,country,South Africa,Pretoria,Johannesburg,,What is the capital of South Africa?,The capital of South Africa is,3,6.4,2.133333333
+capitals,9,country,Switzerland,Bern,Zurich,Geneva,What is the capital of Switzerland?,The capital of Switzerland is,0.448,1.455,3.247767857
+capitals,10,country,Turkey,Ankara,Istanbul,,What is the capital of Turkey?,The capital of Turkey is,5.55,16.24,2.926126126
+capitals,11,country,United Arab Emirates,Abu Dhabi,Dubai,,What is the capital of the United Arab Emirates?,The capital of the United Arab Emirates is,1.6,3.1,1.9375
+capitals,12,state,Alabama,Montgomery,Birmingham,,What is the capital of Alabama?,The capital of Alabama is,0.192,0.194,1.010416667
+capitals,13,state,Alaska,Juneau,Anchorage,,What is the capital of Alaska?,The capital of Alaska is,0.0311,0.283,9.099678457
+capitals,14,state,California,Sacramento,Los Angeles,,What is the capital of California?,The capital of California is,0.527,3.8,7.210626186
+capitals,15,state,Connecticut,Hartford,Bridgeport,,What is the capital of Connecticut?,The capital of Connecticut is,0.119,0.148,1.243697479
+capitals,16,state,Delaware,Dover,Wilmington,,What is the capital of Delaware?,The capital of Delaware is,0.0403,0.0722,1.791563275
+capitals,17,state,Florida,Tallahassee,Jacksonville,,What is the capital of Florida?,The capital of Florida is,0.205,1.008,4.917073171
+capitals,18,state,Illinois,Springfield,Chicago,,What is the capital of Illinois?,The capital of Illinois is,0.111,2.612,23.53153153
+capitals,19,state,Kansas,Topeka,Wichita,,What is the capital of Kansas?,The capital of Kansas is,0.125,0.395,3.16
+capitals,20,state,Kentucky,Frankfort,Louisville,,What is the capital of Kentucky?,The capital of Kentucky is,0.0281,0.617,21.95729537
+capitals,21,state,Louisiana,Baton Rouge,New Orleans,,What is the capital of Louisiana?,The capital of Louisiana is,0.215,0.351,1.63255814
+capitals,22,state,Maine,Augusta,Portland,,What is the capital of Maine?,The capital of Maine is,0.0192,0.0695,3.619791667
+capitals,23,state,Maryland,Annapolis,Baltimore,,What is the capital of Maryland?,The capital of Maryland is,0.0403,0.553,13.72208437
+capitals,24,state,Michigan,Lansing,Detroit,,What is the capital of Michigan?,The capital of Michigan is,0.112,0.63,5.625
+capitals,25,state,Minnesota,St. Paul,Minneapolis,,What is the capital of Minnesota?,The capital of Minnesota is,0.299,0.421,1.408026756
+capitals,26,state,Montana,Helena,Billings,,What is the capital of Montana?,The capital of Montana is,0.0359,0.123,3.426183844
+capitals,27,state,Nebraska,Lincoln,Omaha,,What is the capital of Nebraska?,The capital of Nebraska is,0.297,0.477,1.606060606
+capitals,28,state,Nevada,Carson City,Las Vegas,,What is the capital of Nevada?,The capital of Nevada is,0.0576,0.67,11.63194444
+capitals,29,state,New Hampshire,Concord,Manchester,,What is the capital of New Hampshire?,The capital of New Hampshire is,0.0449,0.115,2.561247216
+capitals,30,state,New Jersey,Trenton,Newark,,What is the capital of New Jersey?,The capital of New Jersey is,0.0898,0.306,3.407572383
+capitals,31,state,New Mexico,Santa Fe,Albuquerque,,What is the capital of New Mexico?,The capital of New Mexico is,0.0901,0.557,6.182019978
+capitals,32,state,New York,Albany,New York,,What is the capital of New York?,The capital of New York is,0.103,7.937,77.05825243
+capitals,33,state,North Carolina,Raleigh,Charlotte,,What is the capital of North Carolina?,The capital of North Carolina is,0.494,0.935,1.892712551
+capitals,34,state,North Dakota,Bismarck,Fargo,,What is the capital of North Dakota?,The capital of North Dakota is,0.076,0.138,1.815789474
+capitals,35,state,Oregon,Salem,Portland,,What is the capital of Oregon?,The capital of Oregon is,0.178,0.615,3.45505618
+capitals,36,state,Pennsylvania,Harrisburg,Philadelphia,,What is the capital of Pennsylvania?,The capital of Pennsylvania is,0.05,1.517,30.34
+capitals,37,state,South Dakota,Pierre,Sioux Falls,,What is the capital of South Dakota?,The capital of South Dakota is,0.0138,0.215,15.57971014
+capitals,38,state,Texas,Austin,Houston,,What is the capital of Texas?,The capital of Texas is,0.989,2.324,2.349848332
+capitals,39,state,Vermont,Montpelier,Burlington,,What is the capital of Vermont?,The capital of Vermont is,0.0079,0.0444,5.620253165
+capitals,40,state,Virginia,Richmond,Virginia Beach,,What is the capital of Virginia?,The capital of Virginia is,0.231,0.45,1.948051948
+capitals,41,state,Washington,Olympia,Seattle,,What is the capital of Washington?,The capital of Washington is,0.0558,0.765,13.70967742
+capitals,42,state,Wisconsin,Madison,Milwaukee,,What is the capital of Wisconsin?,The capital of Wisconsin is,0.284,0.551,1.940140845
