@@ -1,8 +1,8 @@
 # Linking forward-pass dynamics in Transformers and real-time human processing
 
-This repository contains code and data for the paper 
-"Linking forward-pass dynamics in Transformers and real-time human processing"
-by Jennifer Hu, Michael Lepori, and Michael Franke.
+This repository contains code and data for the preprint 
+["Linking forward-pass dynamics in Transformers and real-time human processing"](https://arxiv.org/abs/2504.14107)
+by Jennifer Hu, Michael Lepori, and Michael Franke. **This is a work in progress.**
 
 ## Evaluating models
 
