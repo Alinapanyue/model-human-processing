@@ -1,71 +1,145 @@
 import numpy as np
 import torch
 from nnsight import LanguageModel
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from tuned_lens import TunedLens
+
+from utils import get_rank, get_model_family, get_vals_of_tokens
 
 
-def get_rank(x, indices, one_indexed=True):
-    """
-    Adapted from https://stephantul.github.io/python/pytorch/2020/09/18/fast_topk/
-    """
-    vals = x[range(len(x)), indices]
-    rank = (x > vals[:, None]).long().sum(1)
-    if one_indexed:
-        rank += 1
-    return rank
+def initialize_lm(
+    model_name, 
+    reduce_precision=False,
+    cache_dir=None,
+    **kwargs
+):
+    """Initializes language model for experiments."""
+    if reduce_precision:
+        print("Using quantization")
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16
+        )
+    else:
+        bnb_config = None
+    model = LM(
+        model_name, 
+        device_map="auto",
+        cache_dir=cache_dir,
+        quantization_config=bnb_config,
+        **kwargs
+    )
+    return model
 
-class LlamaWrapper():
-    """Model class for Llama evaluated in our experiments."""
+class LM():
+    """Base model class for LMs evaluated in our experiments."""
     def __init__(
         self, 
         model_name: str, 
+        use_tuned_lens: bool = False,
+        cache_dir: str = None,
         **load_kwargs
     ) -> None:
         # Store basic meta data about the model.
         self.model_name = model_name
-        print(load_kwargs)
-        model = AutoModelForCausalLM.from_pretrained(model_name, **load_kwargs)
+        self.model_family = get_model_family(model_name)
+
+        # Load model.
+        model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            cache_dir=cache_dir,
+            **load_kwargs
+        )
+        print(model)
+
+        # Load pretrained tuned lens.
+        self.use_tuned_lens = use_tuned_lens
+        if use_tuned_lens:
+            print("Initializing pretrained tuned lens")
+            self.tuned_lens = TunedLens.from_model_and_pretrained(
+                model, 
+                cache_dir=cache_dir
+            ).to("cuda")
+        else:
+            print("Using standard logit lens")
+
+        # Load tokenizer.
         tokenizer = AutoTokenizer.from_pretrained(model_name, **load_kwargs)
         if tokenizer.pad_token is None:
             print("No pad token found; setting pad token to eos token")
             tokenizer.pad_token = tokenizer.eos_token
+
+        # Initialize nnsight wrapper.
         self.model = LanguageModel(model, tokenizer=tokenizer)
+
+        # Define references to internal layers and functions for logit lens.
+        if self.model_family in ["llama", "olmo", "gemma", "falcon"]:
+            self.layers = self.model.model.layers
+            self.layer_norm = self.model.model.norm
+            self.lm_head = self.model.lm_head
+        elif self.model_family == "gpt":
+            self.layers = self.model.transformer.h
+            self.layer_norm = self.model.transformer.ln_f
+            self.lm_head = self.model.lm_head
+        elif self.model_family == "mamba":
+            self.layers = self.model.backbone.layers
+            self.layer_norm = self.model.backbone.norm_f
+            self.lm_head = self.model.lm_head
+        else:
+            raise ValueError(f"Unsupported model family: {self.model_family}")
+
+        self.n_layers = len(self.layers)
+
+    def apply_lens(self, hiddens):
+        """
+        Decode hiddens into logits and log probabilities,
+        with optional affine embedding using tuned lens.
+
+        Args:
+        * hiddens: Tensor (n_tokens x n_layers x hidden_size)
+        
+        Returns:
+        * logits: Tensor (n_tokens x n_layers x vocab_size)
+        * logprobs: Tensor (n_tokens x n_layers x vocab_size)
+        """
+        if self.use_tuned_lens:
+            logits = torch.stack([
+                torch.stack([
+                    self.tuned_lens(h, i) for i, h in enumerate(tok_hiddens)
+                ])
+                for tok_hiddens in hiddens.to("cuda") # move to same device as tuned_lens
+            ])
+        else:
+            # Use standard logit lens.
+            logits = self.lm_head(self.layer_norm(hiddens))
+        logprobs = logits.log_softmax(dim=-1)
+        return logits, logprobs
 
     def logprobs_and_logit_diffs_all_layers(
         self,
         text: str
     ) -> torch.Tensor:
         """
-        ADAPTED FROM THE FOLLOWING:
-        https://github.com/Butanium/llm-latent-language/blob/7519b4a3b528dacbc4c37aca0f74497bda18e57f/exp_tools.py#L51
+        Main function for obtaining logits and logprobs at each layer,
+        given a context stimulus.
         """
         self.model.eval()
-        with self.model.trace(text) as tracer:
-            # Useful if we want to do multiple sentences at a time
-            # inds = torch.arange(len(inputs.input_ids))
-            hiddens_l = [
-                layer.output[0][0, :].unsqueeze(1)
-                for layer in self.model.model.layers
-            ]
-            # ~~~~~~~~~~~~~~ Get "raw" logits and logprobs (normal forward pass)
-            # SHAPE: n_tokens x n_layers x hidden_size
-            hiddens = torch.cat(hiddens_l, dim=1).cpu().save()
-            rms_out = self.model.model.norm(hiddens)
-            # SHAPE: n_tokens x n_layers x vocab_size
-            logits = self.model.lm_head(rms_out).cpu().save()
-            logprobs = logits.log_softmax(dim=-1).cpu().save()
-
-            # ~~~~~~~~~~~~~~ Get "delta" logits and logprobs
-            # Get deltas between hidden states (i --> i+1)
-            # SHAPE: n_tokens x (n_layers - 1) x hidden_size
-            hidden_deltas = hiddens[:, 1:, :]  - hiddens[:, :-1, :]
-            rms_out_deltas = self.model.model.norm(hidden_deltas)
-            # SHAPE: n_tokens x (n_layers-1) x vocab_size
-            logits_deltas = self.model.lm_head(rms_out_deltas).cpu().save()
-            logprobs_deltas = logits_deltas.log_softmax(dim=-1).cpu().save()
-
+        with torch.no_grad():
+            with self.model.trace(text) as tracer:
+                # Get hidden representations.
+                hiddens_l = [
+                    layer.output[0][0, :].unsqueeze(1) for layer in self.layers
+                ]
+                # Get "raw" hiddens and "deltas" between hiddens (i-->i+1).
+                hiddens = torch.cat(hiddens_l, dim=1).save()
+                hidden_deltas = (hiddens[:, 1:, :]  - hiddens[:, :-1, :]).save()
+        # Get logits and logprobs using logit lens or tuned lens.
+        logits, logprobs = self.apply_lens(hiddens)
+        logits_deltas, logprobs_deltas = self.apply_lens(hidden_deltas)
         return logits, logprobs, logits_deltas, logprobs_deltas
-        
+
     def rank_of_token_all_layers(
         self, 
         prefix: str,
@@ -77,7 +151,6 @@ class LlamaWrapper():
         Returns a list of N lists, where N is the length of `token_ids`.
         Each nested list has one rank per layer.
         """
-        # logprobs = self.logprobs_all_layers(prefix, return_logits=False)
         _, logprobs, _, _ = self.logprobs_and_logit_diffs_all_layers(prefix)
 
         # Just look at the predictions at the last position
@@ -106,15 +179,13 @@ class LlamaWrapper():
         Scores are defined as a reduction of the raw token-level log probabilities.
 
         Args:
-            prefix: str (what you want to condition on)
-            continuation: str (what you want to compute probability of)
+         * prefix: str (what you want to condition on)
+         * continuation: str (what you want to compute probability of)
         """
         text = prefix + sep + continuation
 
         logits, logprobs, logits_deltas, _ = \
             self.logprobs_and_logit_diffs_all_layers(text)
-
-        # logprobs, logits = self.logprobs_all_layers(text, return_logits=True)
 
         # Tokenize the continuation separately so we know which ones to keep.
         continuation_tokens = self.model.tokenizer(continuation)["input_ids"]
@@ -137,8 +208,21 @@ class LlamaWrapper():
             # "New" tokens by combining prefix and continuation separately.
             prefix_tokens = self.model.tokenizer(prefix, add_special_tokens=False)["input_ids"]
             new_text_tokens = prefix_tokens + continuation_tokens
-            
-            assert all(n == t for n, t in zip(new_text_tokens, text_tokens))
+
+            # Check if the tokens all match up.
+            match = all(n == t for n, t in zip(new_text_tokens, text_tokens))
+
+            if not match:
+                # If there was a mismatch, make another attempt by adding
+                # a space in front of the continuation.
+                continuation_tokens = self.model.tokenizer(
+                    " " + continuation, add_special_tokens=False
+                )["input_ids"]
+                new_text_tokens = prefix_tokens + continuation_tokens
+                match = all(n == t for n, t in zip(new_text_tokens, text_tokens))
+                if not match:
+                    # If there is still a mismatch, give up.
+                    raise ValueError("Could not isolate continuation tokens!")
 
         # Only keep the logits corresponding to the continuation.
         # We look at the logits at position i-1 for target token i, so we need to
@@ -155,34 +239,23 @@ class LlamaWrapper():
             # Exponentiate logprobs to get probs
             -first_token_of_continuation_logprobs.exp() * \
             first_token_of_continuation_logprobs
-        ).sum(dim=1).detach().numpy()
+        ).sum(dim=1).detach().cpu().numpy()
 
-        # Get logprobs corresponding to each token in the continuation,
-        # for each layer. FINAL SHAPE: n_layers x n_continuation_tokens
-        n_layers = len(self.model.model.layers)
-        all_layer_logprobs = np.array([
-            [
-                continuation_logprobs[i][layer_id][token_id].detach().cpu()
-                for i, token_id in enumerate(continuation_tokens)
-            ]
-            for layer_id in range(n_layers)
-        ])
-        all_layer_logits = np.array([
-            [
-                continuation_logits[i][layer_id][token_id].detach().cpu()
-                for i, token_id in enumerate(continuation_tokens)
-            ]
-            for layer_id in range(n_layers)
-        ])
-        # Do the same, but for the layer *deltas*. 
-        # FINAL SHAPE: (n_layers-1) x n_continuation_tokens
-        all_layer_logits_deltas = np.array([
-            [
-                continuation_logits_deltas[i][layer_id][token_id].detach().cpu()
-                for i, token_id in enumerate(continuation_tokens)
-            ]
-            for layer_id in range(n_layers-1)
-        ])
+        # Get logits and logprobs corresponding to each token in the continuation.
+        # "Raw" layers: n_layers x n_continuation_tokens
+        all_layer_logprobs = get_vals_of_tokens(
+            continuation_logprobs, 
+            continuation_tokens
+        )
+        all_layer_logits = get_vals_of_tokens(
+            continuation_logits, 
+            continuation_tokens
+        )
+        # Layer "deltas": (n_layers-1) x n_continuation_tokens
+        all_layer_logits_deltas = get_vals_of_tokens(
+            continuation_logits_deltas,
+            continuation_tokens
+        )
 
         # Perform reduction on token-level logprobs to get final scores.
         sum_logprobs = np.sum(all_layer_logprobs, axis=1)

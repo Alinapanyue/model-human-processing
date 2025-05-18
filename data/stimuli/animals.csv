@@ -1,4 +1,4 @@
-task,item_id,condition,exemplar,correct,intuitive,human_prop_correct,exemplar_de,correct_de,intuitive_de,prefix,question
+task,item_id,condition,exemplar,correct,incorrect,human_prop_correct,exemplar_de,correct_de,incorrect_de,prefix,question
 animals,1,Atypical,eel,fish,reptile,0.9537037037,Aal,Fisch,Reptil,An eel is a type of,What kind of animal is an eel?
 animals,2,Atypical,bat,mammal,bird,0.7777777778,Fledermaus,Saeugetier,Vogel,A bat is a type of,What kind of animal is a bat?
 animals,3,Atypical,penguin,bird,fish,0.9259259259,Pinguin,Vogel,Fisch,A penguin is a type of,What kind of animal is a penguin?

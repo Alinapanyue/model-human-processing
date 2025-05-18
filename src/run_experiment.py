@@ -6,7 +6,8 @@ import os
 import pandas as pd
 
 import evaluate
-from utils import TASKS, initialize_lm, get_file_safe_model_name
+from utils import TASKS, TL_MODELS, get_file_safe_model_name
+from model import initialize_lm
 
 
 def parse_args() -> argparse.Namespace:
@@ -27,7 +28,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--reduce_precision", default=False, action="store_true")
     # Experiment-related parameters
     parser.add_argument("--task", type=str, default=None, nargs="+", choices=TASKS)
-    parser.add_argument("--run_controls", default=False, action="store_true")
+    parser.add_argument("--use_tuned_lens", default=False, action="store_true")
     args = parser.parse_args()
     return args
 
@@ -37,10 +38,14 @@ def main():
     print(args)
 
     # Initialize model.
+    if args.use_tuned_lens and args.model not in TL_MODELS:
+        raise ValueError(f"No pretrained tuned lens for {args.model}!")
+        
     model = initialize_lm(
         args.model,
         reduce_precision=args.reduce_precision,
-        cache_dir=args.cache_dir
+        cache_dir=args.cache_dir,
+        use_tuned_lens=args.use_tuned_lens
     )
 
     # Get file-safe model name.
@@ -53,7 +58,11 @@ def main():
         prompts = None
 
     # Create output directory.
-    os.makedirs(args.output_dir, exist_ok=True)
+    if args.use_tuned_lens:
+        output_dir = os.path.join(args.output_dir, "tuned_lens")
+    else:
+        output_dir = os.path.join(args.output_dir, "logit_lens")
+    os.makedirs(output_dir, exist_ok=True)
 
     # Evaluate model on each task.
     if args.task is None:
@@ -65,7 +74,7 @@ def main():
 
         # Get name of output file where results will be written.
         file = f"{task}_{safe_model_name}.csv"
-        outfile = os.path.join(args.output_dir, file)
+        outfile = os.path.join(output_dir, file)
 
         # Read stimuli.
         if task.startswith("capitals"):
@@ -81,8 +90,7 @@ def main():
             model, 
             stimuli,
             task=task,
-            prompts=prompts,
-            run_controls=args.run_controls
+            prompts=prompts
         )
         # Save results to file.
         result.to_csv(outfile, index=False)
