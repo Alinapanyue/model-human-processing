@@ -1,8 +1,0 @@
-"term","npar","AIC","BIC","logLik","deviance","statistic","df","p.value","iv","dv","data_subset","file_prefix","p_fdr"
-"baseline_fit",17,2758.95264133223,2867.82105771851,-1362.47632066612,2724.95264133223,NA,NA,NA,"baseline","response_correct","all_trials","vit_base_patch16_224_false-colour",NA
-"critical_fit",18,2535.50855399121,2650.7809948708,-1249.7542769956,2499.50855399121,225.444087341025,1,5.87426582035807e-51,"auc_entropy","response_correct","all_trials","vit_base_patch16_224_false-colour",3.52455949221484e-50
-"critical_fit",18,2691.42927108919,2806.70171196878,-1327.7146355446,2655.42927108919,69.5233702430382,1,7.55144427971157e-17,"layer_biggest_change_entropy","response_correct","all_trials","vit_base_patch16_224_false-colour",2.26543328391347e-16
-"critical_fit",18,2748.36610594465,2863.63854682424,-1356.18305297232,2712.36610594465,12.586535387582,1,0.000388535716009468,"auc_rank_correct","response_correct","all_trials","vit_base_patch16_224_false-colour",0.000582803574014202
-"critical_fit",18,2748.05126744544,2863.32370832503,-1356.02563372272,2712.05126744544,12.9013738867902,1,0.000328341028141762,"layer_biggest_change_rank_correct","response_correct","all_trials","vit_base_patch16_224_false-colour",0.000582803574014202
-"critical_fit",18,2753.08650697318,2868.35894785277,-1358.54325348659,2717.08650697318,7.86613435905338,1,0.00503692175625851,"auc_logprob_correct","response_correct","all_trials","vit_base_patch16_224_false-colour",0.00503692175625851
-"critical_fit",18,2749.29021150906,2864.56265238865,-1356.64510575453,2713.29021150906,11.6624298231691,1,0.000637749896502984,"layer_biggest_change_logprob_correct","response_correct","all_trials","vit_base_patch16_224_false-colour",0.000765299875803581

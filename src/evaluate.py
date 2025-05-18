@@ -15,7 +15,7 @@ def _evaluate_single_item(
     model, 
     prefix: str, 
     answer_texts: list[str],
-    answer_labels: list[str] = ["correct", "intuitive"],
+    answer_labels: list[str] = ["correct", "incorrect"],
     meta_data: Optional[dict] = None
 ):
     """
@@ -55,7 +55,7 @@ def _evaluate_single_item(
     ]
 
     # (3) Process layerwise ranks and scores into final clean format.
-    n_layers = len(model.model.model.layers)
+    n_layers = model.n_layers
     for layer_idx in range(n_layers):
         # Initialize results dictionary with relevant metadata.
         res = copy.deepcopy(meta_data)
@@ -100,10 +100,7 @@ def evaluate(
     model,
     stimuli: pd.DataFrame, 
     task: str = "capitals-recall",
-    prompts: Optional[pd.DataFrame] = None,
-    # use_chat: bool = False,
-    run_controls: bool = False,
-    **prompt_kws
+    prompts: Optional[pd.DataFrame] = None
 ) -> pd.DataFrame:
     """
     Wrapper function that implements LM evaluation of a full set of stimuli.
@@ -113,10 +110,7 @@ def evaluate(
 
     # Answer options corresponding to columns in `stimuli` that will be used
     # for evaluation.
-    main_answer_labels = ["correct", "incorrect"] if task == "syllogism" else ["correct", "intuitive"]
-
-    # Answer options for control analyses.
-    control_answer_labels = ["control-irrelevant", "control-relevant"]
+    main_answer_labels = ["correct", "incorrect"]
 
     # Specify meta variables related to stimuli that we want to record in the 
     # final results. By default, this is all columns in the dataframe.
@@ -167,20 +161,8 @@ def evaluate(
             
         # Get texts of answer options.
         main_answer_texts = [str(stim_row[label]) for label in main_answer_labels]
-        irrelevant_text = "."
-        if task.startswith("capitals"):
-            relevant_text = stim_row["entity"]
-        elif task == "animals":
-            relevant_text = stim_row["exemplar"]
-        elif task == "syllogism":
-            relevant_text = ""
-        else:
-            raise ValueError(f"Undefined relevant distractor text for task '{task}'")
-        control_answer_texts = [irrelevant_text, relevant_text]
-
-        # Combine main answers and control answers.
-        answer_labels = main_answer_labels # + control_answer_labels
-        answer_texts = main_answer_texts  #+ control_answer_texts
+        answer_labels = main_answer_labels
+        answer_texts = main_answer_texts
 
         # Finally, loop over all items for evaluation.
         for item in item_meta_data:
@@ -210,38 +192,6 @@ def evaluate(
                 answer_labels=answer_labels,
                 meta_data=item
             )
-
-            # Optionally run controls.
-            if run_controls:
-                if task.startswith("capitals"):
-                    control_prefix = "The capital"
-                elif task == "animals":
-                    control_prefix = prefix.split()[0]
-                elif task == "syllogism":
-                    control_prefix = "Argument:"
-                layerwise_scores_controls = _evaluate_single_item(
-                    model,
-                    control_prefix,
-                    answer_texts,
-                    answer_labels=answer_labels,
-                    meta_data=item
-                )
-                
-                for layer_idx, layer_scores in enumerate(layerwise_scores):
-                    # Get name of variables that are related to the results themselves,
-                    # not meta data contained in the `item` dict.
-                    result_vars = [
-                        k for k in layer_scores.keys() if k not in item.keys()
-                        and k != "layer_idx"
-                    ]
-
-                    # Add control results.
-                    for r in result_vars:
-                        layer_scores[f"control_{r}"] = layerwise_scores_controls[layer_idx][r]
-                    layer_scores["control_model_input"] = control_prefix
-                    
-                    # Update scores.
-                    layerwise_scores[layer_idx] = layer_scores
 
             all_scores += layerwise_scores
 

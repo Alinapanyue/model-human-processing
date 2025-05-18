@@ -9,7 +9,7 @@ python src/run_experiment.py \
     --model $MODEL \
     --task $TASK \
     --stimuli_dir data/stimuli \
-    --output_dir data/model_output \
-    --run_controls
-    # optionally use the flag below to reduce model precision
+    --output_dir data/model_output
+    # optionally use the flags below
     # --reduce_precision
+    # --used_tuned_lens
