@@ -11,7 +11,8 @@ TASKS = [
     "capitals-recognition",
     "animals",
     "gender",
-    "syllogism"
+    "syllogism",
+    "colors"
 ]
 TL_MODELS = [
     "gpt2", "gpt2-xl", "meta-llama/Llama-2-7b-hf", "meta-llama/Llama-2-13b-hf"
@@ -112,4 +113,117 @@ def get_conditions_for_capitals_recognition_experiment(stim_row) -> list[dict]:
             correct_first=correct_first,
             query=query
         ))
+    return conditions
+
+def get_conditions_for_color_experiment(stim_row) -> list[dict]:
+    """
+    Return list of dictionaries defining conditions for evaluation
+    in the colors experiment.
+    
+    This function creates multiple experimental conditions by varying:
+    1. Number of intervening facts (0-5 facts between critical info and question)
+    2. Type of intervening facts (normal vs. strange)
+    
+    The hypothesis:
+    - More intervening facts -> model more likely to forget critical info
+    - Normal facts -> bias toward intuitive (prior knowledge) answer
+    - Strange facts -> less bias toward intuitive answer
+    """
+    conditions = []
+    
+    # Available fact types in the order they appear in the CSV
+    fact_types = ["appearance", "type", "subtype", "place", "size"]
+    
+    # Baseline condition: no intervening facts
+    query = stim_row["prefix"] + " " + stim_row["fact_color_critical"] + " " + stim_row["question"]
+    conditions.append(dict(
+        query=query,
+        num_intervening_facts=0,
+        fact_type_condition="none",
+        prefix=stim_row["prefix"]
+    ))
+    
+    # Conditions with 1 intervening fact (test each fact type separately)
+    for fact_type in fact_types:
+        # Normal fact
+        fact_col_normal = f"fact_{fact_type}_normal"
+        if fact_col_normal in stim_row and stim_row[fact_col_normal]:
+            query = (stim_row["prefix"] + " " + 
+                    stim_row["fact_color_critical"] + " " + 
+                    stim_row[fact_col_normal] + " " + 
+                    stim_row["question"])
+            conditions.append(dict(
+                query=query,
+                num_intervening_facts=1,
+                fact_type_condition=f"{fact_type}_normal",
+                prefix=stim_row["prefix"]
+            ))
+        
+        # Strange fact
+        fact_col_strange = f"fact_{fact_type}_strange"
+        if fact_col_strange in stim_row and stim_row[fact_col_strange]:
+            query = (stim_row["prefix"] + " " + 
+                    stim_row["fact_color_critical"] + " " + 
+                    stim_row[fact_col_strange] + " " + 
+                    stim_row["question"])
+            conditions.append(dict(
+                query=query,
+                num_intervening_facts=1,
+                fact_type_condition=f"{fact_type}_strange",
+                prefix=stim_row["prefix"]
+            ))
+    
+    # Conditions with all 5 normal facts
+    normal_facts = [stim_row[f"fact_{fact_type}_normal"] 
+                   for fact_type in fact_types 
+                   if f"fact_{fact_type}_normal" in stim_row and stim_row[f"fact_{fact_type}_normal"]]
+    if normal_facts:
+        query = (stim_row["prefix"] + " " + 
+                stim_row["fact_color_critical"] + " " + 
+                " ".join(normal_facts) + " " + 
+                stim_row["question"])
+        conditions.append(dict(
+            query=query,
+            num_intervening_facts=len(normal_facts),
+            fact_type_condition="all_normal",
+            prefix=stim_row["prefix"]
+        ))
+    
+    # Conditions with all 5 strange facts
+    strange_facts = [stim_row[f"fact_{fact_type}_strange"] 
+                    for fact_type in fact_types 
+                    if f"fact_{fact_type}_strange" in stim_row and stim_row[f"fact_{fact_type}_strange"]]
+    if strange_facts:
+        query = (stim_row["prefix"] + " " + 
+                stim_row["fact_color_critical"] + " " + 
+                " ".join(strange_facts) + " " + 
+                stim_row["question"])
+        conditions.append(dict(
+            query=query,
+            num_intervening_facts=len(strange_facts),
+            fact_type_condition="all_strange",
+            prefix=stim_row["prefix"]
+        ))
+    
+    # Mixed condition: alternate normal and strange facts
+    # Pattern: normal, strange, normal, strange, normal
+    if len(normal_facts) >= 3 and len(strange_facts) >= 2:
+        mixed_facts = [
+            normal_facts[0],   # appearance_normal
+            strange_facts[0],  # type_strange
+            normal_facts[2],   # subtype_normal
+            strange_facts[3],  # place_strange
+            normal_facts[4]    # size_normal
+        ]
+        query = (stim_row["prefix"] + " " + 
+                stim_row["fact_color_critical"] + " " + 
+                " ".join(mixed_facts) + " " + 
+                stim_row["question"])
+        conditions.append(dict(
+            query=query,
+            num_intervening_facts=5,
+            fact_type_condition="mixed",
+            prefix=stim_row["prefix"]
+        ))
+    
     return conditions

@@ -7,7 +7,8 @@ from tqdm import tqdm
 
 from utils import (
     get_first_token_of_answers,
-    get_conditions_for_capitals_recognition_experiment
+    get_conditions_for_capitals_recognition_experiment,
+    get_conditions_for_color_experiment
 )
 
 
