@@ -133,12 +133,6 @@ Each CSV contains layer-by-layer logit lens analysis with columns for:
 
 2. **Diminishing returns on fact-type effects**: The sophisticated distinction between normal and strange facts that matters in GPT-2 becomes irrelevant in larger models, which simply maintain both context and priors simultaneously.
 
-### For AI Safety and Capabilities
-
-1. **Small models are more "human-like" in failure modes**: GPT-2's failure pattern (forgetting context, relying on priors) is more predictable and human-interpretable than perfect performance.
-
-2. **Larger models overcome human intuitions about cognitive load**: What should be "harder" (5 facts vs 0 facts) makes no difference to models above the scaling threshold, suggesting they use fundamentally different processing strategies than humans.
-
 ## Experimental Output Summary
 
 The analysis scripts generate detailed performance metrics for each model:
