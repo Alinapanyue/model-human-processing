@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Model output files (large CSV files)
+data/model_output/logit_lens/*.csv
+*.log
