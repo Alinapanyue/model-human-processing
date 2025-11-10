@@ -65,7 +65,7 @@ TASK="colors"
 # Set cache to scratch space (also check shared cache)
 export HF_HOME="/scratch/jhu35/ypan50/hf_cache"
 export TRANSFORMERS_CACHE="/scratch/jhu35/ypan50/hf_cache"
-export HF_TOKEN="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"
+export HF_TOKEN=""
 mkdir -p $HF_HOME
 
 # Determine if we need quantization for large models
