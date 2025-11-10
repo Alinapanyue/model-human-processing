@@ -111,7 +111,11 @@ def evaluate(
 
     # Answer options corresponding to columns in `stimuli` that will be used
     # for evaluation.
-    main_answer_labels = ["correct", "incorrect"]
+    # For colors task, use "intuitive" instead of "incorrect" to match CSV column
+    if task == "colors":
+        main_answer_labels = ["correct", "intuitive"]
+    else:
+        main_answer_labels = ["correct", "incorrect"]
 
     # Specify meta variables related to stimuli that we want to record in the 
     # final results. By default, this is all columns in the dataframe.
