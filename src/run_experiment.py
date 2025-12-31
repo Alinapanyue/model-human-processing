@@ -80,7 +80,7 @@ def main():
         if task == "colors" and args.color_experiment is not None:
             file = f"{task}_{args.color_experiment}_{safe_model_name}.csv"
         else:
-            ile = f"{task}_{safe_model_name}.csv"
+            file = f"{task}_{safe_model_name}.csv"
         outfile = os.path.join(output_dir, file)
 
         # Read stimuli.
@@ -107,8 +107,8 @@ def main():
                 model, 
                 stimuli,
                 task=task,
-            prompts=prompts
-        )
+                prompts=prompts
+            )
         # Save results to file.
         result.to_csv(outfile, index=False)
         print(f"Wrote results to {outfile}")

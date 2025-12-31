@@ -163,7 +163,7 @@ def evaluate(
                 conditions = get_conditions_for_color_experiment_3(stim_row)
             else:
                 # Default: original mixed design with all condition types
-            conditions = get_conditions_for_color_experiment(stim_row)
+                conditions = get_conditions_for_color_experiment(stim_row)
             item_meta_data = [
                 meta_data | condition
                 for meta_data in item_meta_data for condition in conditions

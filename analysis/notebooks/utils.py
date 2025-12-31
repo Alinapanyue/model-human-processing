@@ -14,6 +14,8 @@ def get_vocab_size(model):
         return 32000
     elif "llama-3.1" in model.lower():
         return 128000
+    elif "llama-3.2" in model.lower():
+        return 128256
     elif "olmo-2" in model.lower():
         return 50000
     elif "gemma-2" in model.lower():
@@ -25,9 +27,10 @@ def get_vocab_size(model):
     
 N_LAYERS = {
     # language models
-    "gpt2": 12, "gpt2-medium": 24, "gpt2-xl": 48, 
+    "gpt2": 12, "gpt2-medium": 24, "gpt2-large": 36, "gpt2-xl": 48, 
     "Llama-2-7b-hf": 32, "Llama-2-13b-hf": 40, "Llama-2-70b-hf": 80,
     "Llama-3.1-8B": 32, "Llama-3.1-70B": 80, "Llama-3.1-405B": 126,
+    "Llama-3.2-1B": 16, "Llama-3.2-3B": 28,
     "gemma-2-2b": 26, "gemma-2-9b": 42, "gemma-2-27b": 46,
     "OLMo-2-1124-7B": 32, "OLMo-2-1124-13B": 40, "OLMo-2-0325-32B": 64,
     "Falcon3-1B-Base": 18, "Falcon3-3B-Base": 22, "Falcon3-10B-Base": 40,
@@ -36,7 +39,7 @@ N_LAYERS = {
 }
 
 MODELS = [
-  "gpt2", "gpt2-medium", "gpt2-xl",
+  "gpt2", "gpt2-medium", "gpt2-large", "gpt2-xl",
   "Llama-2-7b-hf", "Llama-2-13b-hf", "Llama-2-70b-hf",
   "Llama-3.1-8B", "Llama-3.1-70B", "Llama-3.1-405B",
   "gemma-2-2b", "gemma-2-9b", "gemma-2-27b",
@@ -63,6 +66,8 @@ def get_model_size(model):
         return 0.124
     elif model == "gpt2-medium":
         return 0.355
+    elif model == "gpt2-large":
+        return 0.774
     elif model == "gpt2-xl":
         return 1.5
     elif model == "vit_small_patch16_224":
@@ -83,13 +88,14 @@ def get_model_family(model):
 ######################################################
 # Task-related helper functions and global variables
 ######################################################
-TASKS = ["capitals-recall", "capitals-recognition", "animals", "gender", "syllogism"]
+TASKS = ["capitals-recall", "capitals-recognition", "animals", "gender", "syllogism", "colors"]
 TASK_NAMES = {
     "capitals-recall": "Capitals recall", 
     "capitals-recognition": "Capitals recognition", 
     "animals": "Animal categories", 
     "gender": "Gender bias",
-    "syllogism": "Syllogisms"
+    "syllogism": "Syllogisms",
+    "colors": "Colors"
 }
 
 # Define list of meta variables for the tasks.
@@ -99,6 +105,7 @@ TASK_META_VAR_MAP = {
     "animals": ["condition", "exemplar", "correct", "incorrect"],
     "gender": ["profession", "correct", "incorrect"],
     "syllogism": ["correct", "incorrect"],
+    "colors": ["entity", "entity_type", "correct", "incorrect"],
     "vision": []
 }
 ITEM_META_VAR_MAP = {
@@ -107,6 +114,7 @@ ITEM_META_VAR_MAP = {
     "animals": ["model", "item_id"],
     "gender": ["model", "item_id", "condition"],
     "syllogism": ["model", "unique_id", "syllogism_name", "order_first", "is_valid", "is_realistic", "is_consistent"],
+    "colors": ["model", "item_id", "num_intervening_facts", "fact_type_condition", "experiment"],
     "vision": ["model", "item_id", "dataset_name"]
 }
 
@@ -122,6 +130,7 @@ TASK_DVS = {
     "capitals-recognition": ["response_correct", "rt"],
     "animals": ["response_correct", "RT", "MAD", "AUC", "xpos_flips", "acc_max_time"],
     "syllogism": ["response_correct", "rt"],
+    "colors": ["response_correct", "rt"],
     "vision": ["response_correct", "rt"]
 }
 DV_NAMES = {
@@ -258,7 +267,7 @@ reds = sns.color_palette("Reds")
 purples = sns.color_palette("Purples")
 browns = sns.color_palette("BrBG")
 MODEL_PAL = {
-    "gpt2": blues[0], "gpt2-medium": blues[1], "gpt2-xl": blues[2], 
+    "gpt2": blues[0], "gpt2-medium": blues[1], "gpt2-large": blues[2], "gpt2-xl": blues[3], 
     "Llama-2-7b-hf": oranges[0], "Llama-2-13b-hf": oranges[1], "Llama-2-70b-hf": oranges[2],
     "Llama-3.1-8B": greens[0], "Llama-3.1-70B": greens[1], "Llama-3.1-405B": greens[2],
     "gemma-2-2b": reds[0], "gemma-2-9b": reds[1], "gemma-2-27b": reds[2],
@@ -268,7 +277,7 @@ MODEL_PAL = {
     "Human": "k"
 }
 MODEL_MAP = {
-    "gpt2": "GPT-2", "gpt2-medium": "GPT-2 Med", "gpt2-xl": "GPT-2 XL",
+    "gpt2": "GPT-2", "gpt2-medium": "GPT-2 Med", "gpt2-large": "GPT-2 Large", "gpt2-xl": "GPT-2 XL",
     "Llama-2-7b-hf": "Llama-2 7B", "Llama-2-13b-hf": "Llama-2 13B", "Llama-2-70b-hf": "Llama-2 70B",
     "Llama-3.1-8B": "Llama-3.1 8B", "Llama-3.1-70B": "Llama-3.1 70B", "Llama-3.1-405B": "Llama-3.1 405B",
     "gemma-2-2b": "Gemma-2 2B", "gemma-2-9b": "Gemma-2 9B", "gemma-2-27b": "Gemma-2 27B",
