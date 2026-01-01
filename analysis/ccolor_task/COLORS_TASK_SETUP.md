@@ -1,11 +1,5 @@
 # Colors Task Implementation Summary
 
-## What We Accomplished
-
-We've successfully implemented a new experimental task called **"colors"** to test whether language models can override their prior knowledge when given conflicting contextual information.
-
----
-
 ## The Research Question
 
 **Can models remember contextual information that conflicts with their prior knowledge when there's intervening content?**
@@ -148,16 +142,6 @@ layer_accuracy = df.groupby(['layer_idx', 'num_intervening_facts'])['mean_logpro
 
 ---
 
-## Next Steps
-
-### Immediate:
-1. ✅ **Set up cluster access** (follow DSAI documentation)
-2. ✅ **Test with a small model locally** (e.g., `gpt2`)
-   ```bash
-   bash scripts/run_experiment.sh gpt2 colors
-   ```
-3. **Verify output format** looks correct
-
 ### After initial testing:
 4. **Run on multiple models** (GPT-2, GPT-2-XL, Llama-2-7b, Llama-2-13b)
 5. **Create analysis notebook** (follow pattern from existing notebooks)
@@ -179,23 +163,3 @@ layer_accuracy = df.groupby(['layer_idx', 'num_intervening_facts'])['mean_logpro
 | `src/evaluate.py` | Added import for `get_conditions_for_color_experiment` |
 | `data/stimuli/colors.csv` | Created new stimuli file with 20 items |
 | `scripts/run_experiment.sh` | No changes needed (already generic) |
-
----
-
-## Questions to Discuss with Jennifer
-
-1. Is the number of conditions (~14 per item × 20 items = ~280 conditions) reasonable?
-2. Should we include more gradual conditions (e.g., 2, 3, 4 facts separately)?
-3. Should we vary the correct color (currently all "blue")?
-4. What models should we prioritize for the initial run?
-5. Are there specific analysis plots she'd like to see?
-
----
-
-## Technical Notes
-
-- The implementation follows the same pattern as `capitals-recognition` task (which also uses multiple conditions per item)
-- Each condition gets evaluated at every layer of the model
-- Results are saved in long format (one row per layer per condition)
-- Compatible with both logit lens and tuned lens approaches
-
