@@ -8,7 +8,9 @@ from tqdm import tqdm
 from utils import (
     get_first_token_of_answers,
     get_conditions_for_capitals_recognition_experiment,
-    get_conditions_for_color_experiment
+    get_conditions_for_color_experiment,
+    get_conditions_for_color_experiment_1,
+    get_conditions_for_color_experiment_3
 )
 
 
@@ -101,7 +103,8 @@ def evaluate(
     model,
     stimuli: pd.DataFrame, 
     task: str = "capitals-recall",
-    prompts: Optional[pd.DataFrame] = None
+    prompts: Optional[pd.DataFrame] = None,
+    color_experiment: Optional[str] = None
 ) -> pd.DataFrame:
     """
     Wrapper function that implements LM evaluation of a full set of stimuli.
@@ -111,7 +114,11 @@ def evaluate(
 
     # Answer options corresponding to columns in `stimuli` that will be used
     # for evaluation.
-    main_answer_labels = ["correct", "incorrect"]
+    # For colors task, use "intuitive" instead of "incorrect" to match CSV column
+    if task == "colors":
+        main_answer_labels = ["correct", "intuitive"]
+    else:
+        main_answer_labels = ["correct", "incorrect"]
 
     # Specify meta variables related to stimuli that we want to record in the 
     # final results. By default, this is all columns in the dataframe.
@@ -147,8 +154,16 @@ def evaluate(
         # For the `colors` and `capitals-recognition` tasks, we additionally 
         # need to do multiple conditions for each stimulus*prompt combination.
         if task == "colors":
-            # Get list of conditions for evaluation.         
-            conditions = get_conditions_for_color_experiment(stim_row)
+            # Get list of conditions for evaluation based on experiment type
+            if color_experiment == "experiment_1":
+                # Systematic manipulation of fact number (1-5) and type (normal vs strange)
+                conditions = get_conditions_for_color_experiment_1(stim_row)
+            elif color_experiment == "experiment_3":
+                # Individual fact type effects (single-fact conditions only)
+                conditions = get_conditions_for_color_experiment_3(stim_row)
+            else:
+                # Default: original mixed design with all condition types
+                conditions = get_conditions_for_color_experiment(stim_row)
             item_meta_data = [
                 meta_data | condition
                 for meta_data in item_meta_data for condition in conditions

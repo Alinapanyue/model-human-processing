@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import torch
 from nnsight import LanguageModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
@@ -47,9 +48,16 @@ class LM():
         self.model_family = get_model_family(model_name)
 
         # Load model.
+        # Get HF token from environment if available
+        hf_token = os.environ.get("HF_TOKEN", None)
+        if hf_token:
+            load_kwargs["token"] = hf_token
+            print(f"Using HF token for authentication")
+        
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             cache_dir=cache_dir,
+            trust_remote_code=True,
             **load_kwargs
         )
         print(model)
@@ -114,8 +122,17 @@ class LM():
         else:
             # Use standard logit lens.
             logits = self.lm_head(self.layer_norm(hiddens))
-        logprobs = logits.log_softmax(dim=-1)
-        return logits, logprobs
+        
+        # Compute logprobs in chunks to save GPU memory for large models
+        # Move to CPU immediately after computing each chunk
+        logits_cpu = logits.cpu()
+        del logits
+        torch.cuda.empty_cache()
+        
+        # Compute log_softmax on CPU to avoid GPU OOM
+        logprobs = logits_cpu.log_softmax(dim=-1)
+        
+        return logits_cpu, logprobs
 
     def logprobs_and_logit_diffs_all_layers(
         self,
@@ -129,15 +146,28 @@ class LM():
         with torch.no_grad():
             with self.model.trace(text) as tracer:
                 # Get hidden representations.
-                hiddens_l = [
-                    layer.output[0][0, :].unsqueeze(1) for layer in self.layers
-                ]
+                hiddens_l = []
+                for layer in self.layers:
+                    layer_out = layer.output[0]
+                    # Handle different output formats (tuple vs tensor)
+                    if isinstance(layer_out, tuple):
+                        layer_out = layer_out[0]
+                    # Ensure correct shape: [batch, seq_len, hidden_dim]
+                    if layer_out.dim() == 2:
+                        layer_out = layer_out.unsqueeze(0)
+                    # Extract first batch and add layer dimension
+                    hiddens_l.append(layer_out[0, :].unsqueeze(1))
                 # Get "raw" hiddens and "deltas" between hiddens (i-->i+1).
                 hiddens = torch.cat(hiddens_l, dim=1).save()
                 hidden_deltas = (hiddens[:, 1:, :]  - hiddens[:, :-1, :]).save()
         # Get logits and logprobs using logit lens or tuned lens.
         logits, logprobs = self.apply_lens(hiddens)
+        # Clear GPU memory after computing logits from hiddens
+        del hiddens
+        torch.cuda.empty_cache()
         logits_deltas, logprobs_deltas = self.apply_lens(hidden_deltas)
+        del hidden_deltas
+        torch.cuda.empty_cache()
         return logits, logprobs, logits_deltas, logprobs_deltas
 
     def rank_of_token_all_layers(

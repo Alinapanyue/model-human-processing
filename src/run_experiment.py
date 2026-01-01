@@ -29,6 +29,9 @@ def parse_args() -> argparse.Namespace:
     # Experiment-related parameters
     parser.add_argument("--task", type=str, default=None, nargs="+", choices=TASKS)
     parser.add_argument("--use_tuned_lens", default=False, action="store_true")
+    parser.add_argument("--color_experiment", type=str, default=None,
+                        choices=["original", "experiment_1", "experiment_3"],
+                        help="For colors task: which experiment design to use (original/experiment_1/experiment_3)")
     args = parser.parse_args()
     return args
 
@@ -73,7 +76,11 @@ def main():
         print(f"***** Task = {task.upper()} *****")
 
         # Get name of output file where results will be written.
-        file = f"{task}_{safe_model_name}.csv"
+        # Include experiment type in filename for colors task
+        if task == "colors" and args.color_experiment is not None:
+            file = f"{task}_{args.color_experiment}_{safe_model_name}.csv"
+        else:
+            file = f"{task}_{safe_model_name}.csv"
         outfile = os.path.join(output_dir, file)
 
         # Read stimuli.
@@ -86,12 +93,22 @@ def main():
         )
 
         # Run the evaluation.
-        result = evaluate.evaluate(
-            model, 
-            stimuli,
-            task=task,
-            prompts=prompts
-        )
+        # Pass color_experiment parameter for colors task
+        if task == "colors":
+            result = evaluate.evaluate(
+                model, 
+                stimuli,
+                task=task,
+                prompts=prompts,
+                color_experiment=args.color_experiment
+            )
+        else:
+            result = evaluate.evaluate(
+                model, 
+                stimuli,
+                task=task,
+                prompts=prompts
+            )
         # Save results to file.
         result.to_csv(outfile, index=False)
         print(f"Wrote results to {outfile}")

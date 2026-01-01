@@ -1,0 +1,9 @@
+{
+    "python.defaultInterpreterPath": "/home/ypan50/.conda/envs/analysis_env/bin/python",
+    "jupyter.jupyterServerType": "local",
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "python.condaPath": "/apps/software/spack/gcc/8.5.0/anaconda3/2024.02-1-jbzsrx3q6jyqoh2f3wy6n7oxhdav64ml/bin/conda",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true
+}
+

@@ -18,6 +18,58 @@ TL_MODELS = [
     "gpt2", "gpt2-xl", "meta-llama/Llama-2-7b-hf", "meta-llama/Llama-2-13b-hf"
 ]
 
+# Experiment 2: Model family comparison at matched parameter scales
+# Compares GPT-2 and Llama architectures to disentangle architecture effects from scale effects
+EXPERIMENT_2_MODEL_PAIRS = [
+    {
+        "gpt2_model": "gpt2",
+        "gpt2_params": "124M",
+        "llama_model": "meta-llama/Llama-3.2-1B",
+        "llama_params": "1B",
+        "ratio": "1:8",
+        "description": "Smallest scale comparison"
+    },
+    {
+        "gpt2_model": "gpt2-medium",
+        "gpt2_params": "355M",
+        "llama_model": "meta-llama/Llama-3.2-3B",
+        "llama_params": "3B",
+        "ratio": "1:8.5",
+        "description": "Medium scale comparison"
+    },
+    {
+        "gpt2_model": "gpt2-large",
+        "gpt2_params": "774M",
+        "llama_model": "meta-llama/Llama-2-7b-hf",
+        "llama_params": "7B",
+        "ratio": "1:9",
+        "description": "Large scale - tests gpt2-large anomaly"
+    },
+    {
+        "gpt2_model": "gpt2-xl",
+        "gpt2_params": "1.5B",
+        "llama_model": "meta-llama/Llama-2-13b-hf",
+        "llama_params": "13B",
+        "ratio": "1:8.7",
+        "description": "Largest scale comparison"
+    }
+]
+
+# All models to test for comprehensive analysis
+ALL_COLORS_MODELS = [
+    # GPT-2 family
+    "gpt2",
+    "gpt2-medium", 
+    "gpt2-large",
+    "gpt2-xl",
+    # Llama-2 family
+    "meta-llama/Llama-2-7b-hf",
+    "meta-llama/Llama-2-13b-hf",
+    # Llama-3.2 family (for better parameter matching)
+    "meta-llama/Llama-3.2-1B",
+    "meta-llama/Llama-3.2-3B"
+]
+
 def flatten(xss: list) -> list:
     """Helper function for flattening a list."""
     return [x for xs in xss for x in xs]
@@ -225,5 +277,152 @@ def get_conditions_for_color_experiment(stim_row) -> list[dict]:
             fact_type_condition="mixed",
             prefix=stim_row["prefix"]
         ))
+    
+    return conditions
+
+
+def get_conditions_for_color_experiment_1(stim_row) -> list[dict]:
+    """
+    Return list of dictionaries defining conditions for Experiment 1:
+    Systematic Manipulation of Fact Number and Type.
+    
+    This experiment tests the dose-response relationship between number of 
+    intervening facts (1-5) and dual processing metrics, comparing normal vs strange
+    facts at each level.
+    
+    Conditions per entity: 11 total
+    - Baseline: 0 facts
+    - Normal-1 through Normal-5: 1-5 normal facts
+    - Strange-1 through Strange-5: 1-5 strange facts
+    
+    Fact insertion order: appearance, type, subtype, place, size
+    
+    Hypotheses:
+    - H1: CoM and TTD increase linearly with number of facts
+    - H2: Normal facts produce higher CoM/TTD than strange facts at all levels
+    - H3: The difference between normal and strange increases with more facts
+    """
+    conditions = []
+    
+    # Fact types in the order they should be inserted
+    fact_types = ["appearance", "type", "subtype", "place", "size"]
+    
+    # Baseline condition: no intervening facts
+    query = stim_row["prefix"] + " " + stim_row["fact_color_critical"] + " " + stim_row["question"]
+    conditions.append(dict(
+        query=query,
+        num_intervening_facts=0,
+        fact_type_condition="baseline",
+        fact_style="none",
+        experiment="experiment_1",
+        prefix=stim_row["prefix"]
+    ))
+    
+    # Systematic conditions: 1-5 facts for both normal and strange
+    for num_facts in range(1, 6):
+        # Take the first N fact types according to insertion order
+        selected_fact_types = fact_types[:num_facts]
+        
+        # Normal facts condition
+        normal_facts = []
+        for fact_type in selected_fact_types:
+            fact_col = f"fact_{fact_type}_normal"
+            if fact_col in stim_row and stim_row[fact_col]:
+                normal_facts.append(stim_row[fact_col])
+        
+        if len(normal_facts) == num_facts:
+            query = (stim_row["prefix"] + " " + 
+                    stim_row["fact_color_critical"] + " " + 
+                    " ".join(normal_facts) + " " + 
+                    stim_row["question"])
+            conditions.append(dict(
+                query=query,
+                num_intervening_facts=num_facts,
+                fact_type_condition=f"normal_{num_facts}",
+                fact_style="normal",
+                experiment="experiment_1",
+                prefix=stim_row["prefix"]
+            ))
+        
+        # Strange facts condition
+        strange_facts = []
+        for fact_type in selected_fact_types:
+            fact_col = f"fact_{fact_type}_strange"
+            if fact_col in stim_row and stim_row[fact_col]:
+                strange_facts.append(stim_row[fact_col])
+        
+        if len(strange_facts) == num_facts:
+            query = (stim_row["prefix"] + " " + 
+                    stim_row["fact_color_critical"] + " " + 
+                    " ".join(strange_facts) + " " + 
+                    stim_row["question"])
+            conditions.append(dict(
+                query=query,
+                num_intervening_facts=num_facts,
+                fact_type_condition=f"strange_{num_facts}",
+                fact_style="strange",
+                experiment="experiment_1",
+                prefix=stim_row["prefix"]
+            ))
+    
+    return conditions
+
+
+def get_conditions_for_color_experiment_3(stim_row) -> list[dict]:
+    """
+    Return list of dictionaries defining conditions for Experiment 3:
+    Fact Type Breakdown (Individual fact type effects).
+    
+    This experiment tests whether different fact types (appearance, type, subtype, 
+    place, size) produce different interference strengths when presented individually.
+    
+    Conditions per entity: 10 total (5 fact types x 2 styles)
+    
+    Analysis goals:
+    - Rank fact types by interference strength (measured by CoM/TTD)
+    - Determine if ranking differs between normal and strange versions
+    - Identify which fact types are more "resistant" to the strange manipulation
+    
+    Note: This uses single-fact conditions to isolate individual fact type effects.
+    """
+    conditions = []
+    
+    # Test each fact type individually at both normal and strange levels
+    fact_types = ["appearance", "type", "subtype", "place", "size"]
+    
+    for fact_type in fact_types:
+        # Normal version of this fact type
+        fact_col_normal = f"fact_{fact_type}_normal"
+        if fact_col_normal in stim_row and stim_row[fact_col_normal]:
+            query = (stim_row["prefix"] + " " + 
+                    stim_row["fact_color_critical"] + " " + 
+                    stim_row[fact_col_normal] + " " + 
+                    stim_row["question"])
+            conditions.append(dict(
+                query=query,
+                num_intervening_facts=1,
+                fact_type_condition=f"{fact_type}_normal",
+                fact_style="normal",
+                fact_category=fact_type,
+                experiment="experiment_3",
+                prefix=stim_row["prefix"]
+            ))
+        
+        # Strange version of this fact type
+        fact_col_strange = f"fact_{fact_type}_strange"
+        if fact_col_strange in stim_row and stim_row[fact_col_strange]:
+            query = (stim_row["prefix"] + " " + 
+                    stim_row["fact_color_critical"] + " " + 
+                    stim_row[fact_col_strange] + " " + 
+                    stim_row["question"])
+            conditions.append(dict(
+                query=query,
+                num_intervening_facts=1,
+                fact_type_condition=f"{fact_type}_strange",
+                fact_style="strange",
+                fact_category=fact_type,
+                experiment="experiment_3",
+                prefix=stim_row["prefix"]
+            ))
     
     return conditions
